@@ -6,6 +6,10 @@ import Login from './pages/Login.vue';
 import Profile from './pages/Profile.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
+import NewsShow from '@/views/news/Show.vue';
+import News from "@/views/news/List";
+import Problems from "@/views/problems/List";
+import ProblemShow from "@/views/problems/Show";
 
 Vue.use(Router);
 
@@ -39,14 +43,41 @@ export default new Router({
       }
     },
     {
-      path: '/profile',
-      name: 'profile',
-      components: { default: Profile, header: MainNavbar, footer: MainFooter },
+      path: '/news',
+      name: 'news',
+      components: { default: News, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: 'black' }
       }
-    }
+    },
+    {
+      path: '/news/:slug',
+      name: 'show-news',
+      components: { default: NewsShow, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/problems',
+      name: 'problems',
+      components: { default: Problems, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/problems/:id',
+      name: 'problem-show',
+      components: { default: ProblemShow, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
   ],
   scrollBehavior: to => {
     if (to.hash) {

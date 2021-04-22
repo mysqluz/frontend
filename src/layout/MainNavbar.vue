@@ -24,14 +24,10 @@
     </template>
     <template slot="navbar-menu">
       <li class="nav-item">
-        <a
-          class="nav-link"
-          href="https://www.creative-tim.com/product/vue-now-ui-kit"
-          target="_blank"
-        >
-          <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-          <p>Download</p>
-        </a>
+        <router-link :to="{ name: 'news' }" class="nav-link">News</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link :to="{ name: 'problems' }" class="nav-link">Problems</router-link>
       </li>
       <drop-down
         tag="li"
@@ -62,8 +58,8 @@
         <nav-link to="/login">
           <i class="now-ui-icons users_circle-08"></i> Login
         </nav-link>
-        <nav-link to="/profile">
-          <i class="now-ui-icons users_single-02"></i> Profile
+        <nav-link to="/news">
+          <i class="now-ui-icons users_single-02"></i> News
         </nav-link>
       </drop-down>
 

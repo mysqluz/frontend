@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import News from '@/views/News'
+import News from '@/views/news/List'
 
 Vue.use(Router)
 
