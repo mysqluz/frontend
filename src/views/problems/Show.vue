@@ -222,7 +222,7 @@ export default {
       getAPI.post('/tasks/', data )
           .then(response => {
             console.log('problem send');
-            this.$router.push('tasks');
+            this.$router.push('/tasks');
           })
           .catch(err => {
             console.log(err)

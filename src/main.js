@@ -27,7 +27,7 @@ Vue.config.productionTip = false;
 Vue.component(vueCodeditor);
 
 // set auth header
-// getAPI.defaults.headers.common['Authorization'] = `Bearer ${store.state.token}`;
+getAPI.defaults.headers.common['Authorization'] = `Token ${store.state.token}`;
 
 Vue.use(NowUiKit);
 

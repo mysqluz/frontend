@@ -45,7 +45,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="task in APIData" :key="task.id">
+                  <tr v-for="task in APIData.results" :key="task.id">
                     <td>{{ task.id }}</td>
                     <td>{{ task.problem.title }}</td>
                     <td>{{ task.user.username }}</td>
@@ -56,6 +56,15 @@
                   </tr>
                   </tbody>
                 </table>
+                <h4>Pagination</h4>
+                <n-pagination
+                    type="primary"
+                    :page-count="Math.ceil(APIData.count/12)"
+                    :total="APIData.count"
+                    v-model="pagination.simple"
+                >
+                </n-pagination>
+
               </div>
             </div>
           </div>
@@ -68,14 +77,19 @@
 <script>
 import { getAPI } from "@/axios-api";
 import Navbar from '../../components/Navbar'
-import {Badge} from "@/components";
+import {Badge, Pagination} from "@/components";
 export default {
   name: 'problem',
   bodyClass: 'profile-page',
   data () {
     return {
       APIData: [],
-      inputVal: 'Initial val'
+      inputVal: 'Initial val',
+      pagination: {
+        simple: 1,
+        default: 2,
+        full: 3
+      }
     }
   },
   methods: {
@@ -85,13 +99,14 @@ export default {
   },
   components: {
     // Navbar
+    [Pagination.name]: Pagination,
     Badge
   },
   created () {
     getAPI.get('/tasks/')
       .then(response => {
         console.log('task API received data')
-        this.APIData = response.data.results
+        this.APIData = response.data
       })
       .catch(err => {
         console.log('xatolik', err)
