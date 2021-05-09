@@ -58,6 +58,9 @@
         <nav-link to="/login">
           <i class="now-ui-icons users_circle-08"></i> Login
         </nav-link>
+        <nav-link to="/register">
+          <i class="now-ui-icons users_circle-08"></i> Register
+        </nav-link>
         <nav-link to="/news">
           <i class="now-ui-icons users_single-02"></i> News
         </nav-link>
@@ -102,6 +105,17 @@
           <p class="d-lg-none d-xl-none">Instagram</p>
         </a>
       </li>
+      <li class="nav-item">
+        <button v-if="this.$store.getters.isLoggedIn"
+
+          title="logout"
+          data-placement="bottom"
+          @click="logout"
+        >
+          <i class="fab fa fa-sign-out">{{ this.$store.getters.getUser.username }}</i>
+          <p class=""> Logout</p>
+        </button>
+      </li>
     </template>
   </navbar>
 </template>
@@ -109,11 +123,17 @@
 <script>
 import { DropDown, Navbar, NavLink } from '@/components';
 import { Popover } from 'element-ui';
+
 export default {
   name: 'main-navbar',
   props: {
     transparent: Boolean,
     colorOnScroll: Number
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+    }
   },
   components: {
     DropDown,

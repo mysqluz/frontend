@@ -71,7 +71,7 @@ export default {
     getAPI.get('/news/')
       .then(response => {
         console.log('News API received data')
-        this.APIData = response.data
+        this.APIData = response.data.results
       })
       .catch(err => {
         console.log('xatolik', err)

@@ -31,21 +31,31 @@
     <div class="album py-5 bg-light">
       <div class="container">
         <div class="row">
-          <div v-for="problem in APIData" :key="problem.id" class="col-md-12">
+          <div class="col-md-12">
             <div class="card mb-4 box-shadow">
               <img src="https:://via.placeholder.com/150x100" alt="" class="card-img-top">
               <div class="card-body">
-                <h4><router-link :to="{ name: 'problem-show', params: { id: problem.id }}">{{ problem.title }}</router-link></h4>
-                <p class="card-text" v-html="problem.content"></p>
-                <div class="btn-group">
-                  <router-link :to="{ name: 'problem-show', params: { id: problem.id }}">Batafsil</router-link>
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <p><span>Author: </span><a v-bind:href="problem.author.url">{{ problem.author.username }}</a></p>
-                  <p><span>Category: </span> <span class="text-muted">{{ problem.category.name }}</span></p>
-                  <p><span>Ball: </span> <span class="text-muted">{{ problem.ball }}</span></p>
-                  <small class="text-muted">9 mins</small>
-                </div>
+                <table class="table table-responsive">
+                  <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Problem</th>
+                    <th>User</th>
+                    <th>Status</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr v-for="task in APIData" :key="task.id">
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.problem.title }}</td>
+                    <td>{{ task.user.username }}</td>
+                    <td>
+                      <badge type="success" v-if="task.status == 1">{{ task.status_text }}</badge>
+                      <badge type="danger" v-else>{{ task.status_text }}</badge>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -58,6 +68,7 @@
 <script>
 import { getAPI } from "@/axios-api";
 import Navbar from '../../components/Navbar'
+import {Badge} from "@/components";
 export default {
   name: 'problem',
   bodyClass: 'profile-page',
@@ -74,11 +85,12 @@ export default {
   },
   components: {
     // Navbar
+    Badge
   },
   created () {
-    getAPI.get('/problems/')
+    getAPI.get('/tasks/')
       .then(response => {
-        console.log('problem API received data')
+        console.log('task API received data')
         this.APIData = response.data.results
       })
       .catch(err => {
