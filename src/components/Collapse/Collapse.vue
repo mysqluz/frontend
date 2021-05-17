@@ -3,7 +3,7 @@
     id="accordion"
     role="tablist"
     aria-multiselectable="true"
-    class="card-collapse"
+    class="accordion"
   >
     <slot></slot>
   </div>
@@ -15,15 +15,18 @@ export default {
   props: {
     animationDuration: {
       type: Number,
-      default: 250
+      default: 250,
+      description: 'Collapse animation duration'
     },
     multipleActive: {
       type: Boolean,
-      default: true
+      default: true,
+      description: 'Whether you can have multiple collapse items opened at the same time'
     },
     activeIndex: {
       type: Number,
-      default: -1
+      default: -1,
+      description: 'Active collapse item index'
     }
   },
   provide() {

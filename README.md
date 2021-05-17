@@ -1,31 +1,26 @@
-# [Vue Now UI Kit](https://demos.creative-tim.com/vue-now-ui-kit) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=Vue%20Now%20UI%20Kit,%20a%20free%20Vue.js%20Bootstrap%204%20UI%20Kit%20%E2%9D%A4%EF%B8%8Fhttps://bit.ly/2OLFzVl%20%23bootstrap%20%23vue.js%20%23design%20%23developers%20%23freebie%20%20via%20%40CreativeTim&source=webclient)
+# [BootstrapVue Argon Dashboard](https://demos.creative-tim.com/bootstrap-vue-argon-dashboard/?ref=bvad-github-readme) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/home?status=BootstrapVue%20Argon%20Dashboard%20is%20a%20Free%20Bootstrap%20and%Vue.js%20Dashboard%20made%20using%vue-cli%20%E2%9D%A4%EF%B8%8F%0Ahttps%3A//demos.creative-tim.com/bootstrap-vue-argon-dashboard%20%vue.js%20%23vue-cli%20%23argon%20%23argondesign%20%23angulardashboard%20%23argonvue%20%23vuedesign%20%23bootstrap%20%23design%20%23uikit%20%23freebie%20%20via%20%40CreativeTim)
 
 
 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/vue-now-ui-kit.svg?maxAge=22000)]() [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/vue-now-ui-kit.svg?maxAge=22000)]() [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
+ ![version](https://img.shields.io/badge/version-1.0.0-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/bootstrap-vue-argon-dashboard.svg?maxAge=2592000)](https://github.com/creativetimofficial/bootstrap-vue-argon-dashboard/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/bootstrap-vue-argon-dashboard.svg?maxAge=2592000)](https://github.com/creativetimofficial/bootstrap-vue-argon-dashboard/issues?q=is%3Aissue+is%3Aclosed) [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim-general/Lobby) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
 
-![Product Gif](src/assets/github/product.gif)
 
-**[Vue Now UI Kit](http://demos.creative-tim.com/vue-now-ui-kit)** is a responsive Bootstrap 4 kit provided for free by Invision and Creative Tim. It is a beautiful cross-platform UI kit featuring over 50 elements and 3 templates.
+![Product Gif](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/vue-argon-dashboard/vue-argon-dashboard.gif)
 
-Vue Now UI Kit is one of the most popular UI Kits online, provided in PSD and Sketch formats by Invision. We wanted to find a way for developers worldwide to benefit from using it. So, in collaboration with Invision, we are launching the HTML version for it!
+**Fully Coded Components**
 
-Now will help you create a clean and simple website that is a perfect fit for today's flat design. It is built using the 12 column grid system, with components designed to fit together perfectly. It makes use of bold colours, beautiful typography, clear photography and spacious arrangements.
+BootstrapVue Argon Dashboard is built with over 100 individual components, giving you the freedom of choosing and combining. All components can take variations in color, that you can easily modify using SASS files.
+You will save a lot of time going from prototyping to full-functional code, because all elements are implemented. This Dashboard is coming with pre-built examples, so the development process is seamless, switching from our pages to the real website is very easy to be done.
+Every element has multiple states for colors, styles, hover, focus, that you can easily access and use.
 
-Create awesome, lifelike prototypes with InVision and Now so your users can experience and give feedback on your vision!
+**Complex Documentation**
 
-To get the PSD and Sketch files, please visit Invision (https://www.invisionapp.com/now).
+Each element is well presented in a very complex documentation. You can read more about the idea behind this [dashboard here](https://www.creative-tim.com/learning-lab/bootstrap-vue/overview/argon-dashboard?ref=bvad-github-readme). You can check the [components here](https://www.creative-tim.com/learning-lab/bootstrap-vue/avatar/argon-dashboard?ref=bvad-github-readme) and the [foundation here](https://www.creative-tim.com/learning-lab/bootstrap-vue/colors/argon-dashboard?ref=bvad-github-readme).
 
-Technologies used: 
-[Vue.js (2.5)](https://vuejs.org/) as framework for development.
-[Vue CLI 3](https://github.com/vuejs/vue-cli) for project scaffolding.
-[Vue Router](https://router.vuejs.org/) for handling routes.
-[Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) as a general css foundation.
-[Element UI](http://element.eleme.io/#/en-US/component/installation) for some complex js components such as tooltips, datepickers, popovers.
+**Example Pages**
 
-We are very excited to share this ui kit with you and we look forward to hearing your feedback!
+If you want to get inspiration or just show something directly to your clients, you can jump start your development with our pre-built example pages. You will be able to quickly set up the basic structure for your web project.
 
-You can find the Github Repo here.
 
 ## Table of Contents
 
@@ -37,116 +32,220 @@ You can find the Github Repo here.
 * [Browser Support](#browser-support)
 * [Resources](#resources)
 * [Reporting Issues](#reporting-issues)
-* [Technical Support or Questions](#technical-support-or-questions)
 * [Licensing](#licensing)
 * [Useful Links](#useful-links)
 
-
 ## Versions
 
-[<img src="src/assets/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/now-ui-kit)
-[<img src="src/assets/github/vuejs.png" width="60" height="60" />](https://www.creative-tim.com/product/vue-now-ui-kit)
-[<img src="src/assets/github/angular.png" width="60" height="60" />](https://www.creative-tim.com/product/now-ui-kit-angular)
+[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/bootstrap-vue-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/bootstrap-vue-argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/vue-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/vue-argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-react)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/vue-argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/nodejs-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-nodejs)[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/laravel_logo.png" width="60" height="60" style="background:white"/>](https://www.creative-tim.com/product/argon-dashboard-laravel)[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/sketch-logo.jpg" width="60" height="60" />](https://github.com/creativetimofficial/argon-dashboard/tree/sketch)
 
 
-| HTML | Vue | Angular |
-| --- | --- | --- |
-| [![Now Ui Kit HTML](https://s3.amazonaws.com/creativetim_bucket/products/56/original/opt_nuk_thumbnail.jpg?1494946669)](https://www.creative-tim.com/product/now-ui-kit) | [![Vue Now UI Kit ](https://s3.amazonaws.com/creativetim_bucket/products/94/original/opt_nuk_vue_thumbnail.jpg?1534755580)](https://www.creative-tim.com/product/vue-now-ui-kit) | [![Now Ui Kit Angular](https://s3.amazonaws.com/creativetim_bucket/products/77/original/opt_nuk_angular_thumbnail.jpg?1520507715)](https://www.creative-tim.com/product/now-ui-kit-angular)
+
+|Vue | HTML | React | Angular  |
+| --- | --- | ---  | --- |
+[![Vue Argon Dashboard](https://github.com/creativetimofficial/public-assets/blob/master/vue-argon-dashboard/vue-argon-dashboard.jpg?raw=true)](https://www.creative-tim.com/product/vue-argon-dashboard?ref=bvad-github-readme) | [![Argon Dashboard HTML](https://github.com/creativetimofficial/public-assets/blob/master/argon-dashboard/argon-dashboard.jpg?raw=true)](https://www.creative-tim.com/product/vue-argon-dashboard?ref=bvad-github-readme) | [![Argon Dashboard React](https://github.com/creativetimofficial/public-assets/blob/master/argon-dashboard-react/argon-dashboard-react.jpg?raw=true)](https://www.creative-tim.com/product/argon-dashboard-react?ref=bvad-github-readme) | [![Argon Dashboard Angular](https://github.com/creativetimofficial/public-assets/blob/master/argon-dashboard-angular/argon-dashboard-angular.jpg?raw=true)](https://www.creative-tim.com/product/argon-dashboard-angular?ref=bvad-github-readme)
+
+| BootstrapVue | NodeJS | Laravel |
+|  ---  | ---  | --- |
+| [![BootstrapVue Argon Dashboard](https://github.com/creativetimofficial/public-assets/blob/master/bootstrap-vue-argon-dashboard/opt_ad_bootstrapvue_thumbnail.jpg?raw=true)](https://www.creative-tim.com/product/bootstrap-vue-argon-dashboard?ref=bvad-github-readme) | [![Argon Dashboard NodeJS](https://github.com/creativetimofficial/public-assets/blob/master/argon-dashboard-nodejs/argon-dashboard-nodejs.jpg?raw=true)](https://www.creative-tim.com/product/argon-dashboard-nodejs?ref=bvad-github-readme) | [![Argon Dashboard Laravel](https://github.com/creativetimofficial/public-assets/blob/master/argon-dashboard-laravel/argon-dashboard-laravel.jpg?raw=true)](https://www.creative-tim.com/product/argon-dashboard-laravel?ref=bvad-github-readme) |
 
 ## Demo
 
-| Components | Landing | Profile | Login |
-| --- | --- | --- | --- |
-| [![Components](src/assets/github/components.png)](https://demos.creative-tim.com/vue-now-ui-kit/#/) | [![Landing page](src/assets/github/landing.png)](https://demos.creative-tim.com/vue-now-ui-kit/#/landing) | [![Profile page ](src/assets/github/profile.png)](https://demos.creative-tim.com/vue-now-ui-kit/#/profile) | [![Login Page](src/assets/github/login.png)](https://demos.creative-tim.com/vue-now-ui-kit/#/login)
+| Dashboard Page | Icons Page | User Profile Page  | Tables Page | Login Page | Register Page  |
+| --- | --- | ---  | --- | --- | ---  |
+| [![Dashboard Page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/vue-argon-dashboard/dashboard.png)](https://demos.creative-tim.com/bootstrap-vue-argon-dashboard/#/dashboard?ref=bvad-github-readme)  | [![Icons Page](https://github.com/creativetimofficial/public-assets/blob/master/vue-argon-dashboard/icons.png?raw=true)](https://demos.creative-tim.com/bootstrap-vue-argon-dashboard/#/icons?ref=bvad-github-readme)  | [![User Profile Page](https://github.com/creativetimofficial/public-assets/blob/master/vue-argon-dashboard/user.png?raw=true)](https://demos.creative-tim.com/bootsrap-vue-argon-dashboard/#/profile?ref=bvad-github-readme)  | [![Tables Page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/vue-argon-dashboard/tables.png)](https://demos.creative-tim.com/bootstrap-vue-argon-dashboard/#/tables?ref=bvad-github-readme)  | [![Login Page](https://github.com/creativetimofficial/public-assets/blob/master/vue-argon-dashboard/login.png?raw=true)](https://demos.creative-tim.com/bootstrap-vue-argon-dashboard/#/login?ref=bvad-github-readme)  | [![Register Page](https://github.com/creativetimofficial/public-assets/blob/master/vue-argon-dashboard/register.png?raw=true)](https://demos.creative-tim.com/bootsrap-vue-argon-dashboard/#/register?ref=bvad-github-readme)  
 
-[View More](https://demos.creative-tim.com/vue-now-ui-kit).
+[View More](https://demos.creative-tim.com/bootstrap-vue-argon-dashboard/#/dashboard)
 
 
 ## Quick start
 
-Quick start options:
-
-- Clone the repo: `git clone https://github.com/creativetimofficial/vue-now-ui-kit.git`.
-- [Download from Github](https://github.com/creativetimofficial/vue-now-ui-kit/archive/master.zip).
-- [Download from Creative Tim](https://www.creative-tim.com/product/vue-now-ui-kit).
-- Run `npm install` or `yarn install`
-- Run `npm run serve` to start a local development server
+- [Download from Github](https://github.com/creativetimofficial/bootsrap-vue-argon-dashboard/archive/master.zip).
+- [Download from Creative Tim](https://www.creative-tim.com/product/bootstrap-vue-argon-dashboard?ref=bvad-github-readme).
+- Clone the repo: `git clone https://github.com/creativetimofficial/bootstrap-vue-argon-dashboard.git`.
 
 
 ## Documentation
-The documentation for Vue Now UI Kit is hosted at our [website](https://demos.creative-tim.com/vue-now-ui-kit/documentation/).
+The documentation for the BootsrapVue Argon Dashboard is hosted at our [website](https://www.creative-tim.com/learning-lab/bootstrap-vue/colors/argon-dashboard).
 
 
 ## File Structure
-
 Within the download you'll find the following directories and files:
 
 ```
-Vue Now Ui Kit
-|-- src
+|-- BootstrapVue Argon Dashboard
+    |-- .gitignore
+    |-- CHANGELOG.md
+    |-- ISSUES_TEMPLATE.md
+    |-- LICENSE.md
+    |-- README.md
+    |-- babel.config.js
+    |-- package.json
+    |-- public
+    |   |-- img
+    |   |-- favicon.ico
+    |   |-- index.html
+    |-- src
+        |-- assets
+        |   |-- logo.png
+        |   |-- scss
+        |   |   |-- core
+        |   |   |-- custom
+        |   |   |-- argon.scss
+        |   |-- vendor
+        |       |-- nucleo
+        |-- components
+        |   |-- Badge.vue
+        |   |-- BaseAlert.vue
+        |   |-- BaseButton.vue
+        |   |-- BaseDropdown.vue
+        |   |-- BaseHeader.vue
+        |   |-- BasePagination.vue
+        |   |-- BaseProgress.vue
+        |   |-- BaseSlider.vue
+        |   |-- BaseTable.vue
+        |   |-- ButtonCheckbox.vue
+        |   |-- ButtonRadioGroup.vue
+        |   |-- CloseButton.vue
+        |   |-- index.js
+        |   |-- LoadingPanel.vue
+        |   |-- Modal.vue
+        |   |-- NavbarToggleButton.vue
+        |   |-- Breadcrumb
+        |   |   |-- Breadcrumb.vue
+        |   |   |-- BreadcrumbItem.vue
+        |   |   |-- RouteBreadcrumb.vue
+        |   |-- Cards
+        |   |   |-- Card.vue
+        |   |   |-- StatsCard.vue
+        |   |-- Charts
+        |   |   |-- BarChart.js
+        |   |   |-- config.js
+        |   |   |-- globalOptionsMixin.js
+        |   |   |-- LineChart.js
+        |   |   |-- optionHelpers.js
+        |   |   |-- roundedCornersExtension.js
+        |   |-- Collapse
+        |   |   |-- Collapse.vue
+        |   |   |-- CollapseItem.vue
+        |   |-- Inputs
+        |   |   |-- BaseCheckbox.vue
+        |   |   |-- BaseInput.vue
+        |   |   |-- BaseRadio.vue
+        |   |-- Navbar
+        |   |   |-- BaseNav.vue
+        |   |   |-- NavbarToggleButton.vue
+        |   |-- NotificationPlugin
+        |   |   |-- index.js
+        |   |   |-- Notification.vue
+        |   |   |-- Notifications.vue
+        |   |-- SidebarPlugin
+        |   |   |-- index.js
+        |   |   |-- SideBar.vue
+        |   |   |-- SidebarItem.vue
+        |   |-- Tabs
+        |   |   |-- Tab.vue
+        |   |   |-- Tabs.vue
+        |-- directives
+        |   |-- click-ouside.js
+        |-- plugins
+        |   |-- dashboard-plugin.js
+        |   |-- globalComponents.js
+        |   |-- globalDirectives.js
+        |-- routes
+        |   |-- router.js
+        |   |-- routes.js
+        |   |-- starterRouter.js
+        |-- util
+        |   |-- throttle.js
+        |-- views
+            |-- Dashboard.vue
+            |-- GoogleMaps.vue
+            |-- Icons.vue
+            |-- NotFoundPage.vue
+            |-- RegularTables.vue
+            |-- Dashboard
+            |   |-- PageVisitsTable.vue
+            |   |-- SocialTrafficTable.vue
+            |-- Layout
+            |   |-- Content.vue
+            |   |-- ContentFooter.vue
+            |   |-- DashboardLayout.vue
+            |   |-- DashboardNavbar.vue
+            |-- Maps
+                |-- APY_KEY.js
+            |-- Pages
+                |-- UserProfile
+                |-- AuthLayout.vue
+                |-- Login.vue
+                |-- Register.vue
+                |-- UserProfile.vue
+            |-- Starter
+                |-- SampleFooter.vue
+                |-- SampleLayout.vue
+                |-- SampleNavbar.vue
+                |-- SamplePage.vue
+            |-- Tables
+                |-- RegularTables
+                |-- projects.js
+                |-- users.js
         |-- App.vue
         |-- main.js
-        |-- router.js
-        |-- assets
-        |   |-- fonts
-        |   |-- scss
-        |-- components
-        |-- directives
-        |-- layout
-        |-- pages
-        |-- plugins
+        |-- polyfills.js
+
+
 ```
+
 
 ## Browser Support
 
 At present, we officially aim to support the last two versions of the following browsers:
 
-<img src="src/assets/github/chrome.png" width="64" height="64"> <img src="src/assets/github/firefox.png" width="64" height="64"> <img src="src/assets/github/edge.png" width="64" height="64"> <img src="src/assets/github/safari.png" width="64" height="64"> <img src="src/assets/github/opera.png" width="64" height="64">
+<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/chrome-logo.png?raw=true" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/firefox-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/edge-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/safari-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/opera-logo.png" width="64" height="64">
+
 
 
 ## Resources
-- Demo: https://demos.creative-tim.com/vue-now-ui-kit
-- Download Page: https://www.creative-tim.com/product/vue-now-ui-kit
-- Documentation: https://demos.creative-tim.com/vue-now-ui-kit/documentation/
-- License Agreement: https://www.creative-tim.com/license
-- Support: https://www.creative-tim.com/contact-us
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/vue-now-ui-kit/issues)
-- [Vue Now UI Dashboard PRO - For Dashboard development](https://www.creative-tim.com/product/vue-now-ui-dashboard-pro?ref=github-vue-nud-free)
+- Demo: <https://demos.creative-tim.com/bootstrap-vue-argon-dashboard/#/dashboard?ref=bvad-github-readme>
+- Download Page: <https://www.creative-tim.com/product/bootstrap-vue-argon-dashboard?ref=bvad-github-readme>
+- Documentation: <https://www.creative-tim.com/learning-lab/bootstrap-vue/colors/argon-dashboard?ref=bvad-github-readme>
+- License Agreement: <https://www.creative-tim.com/license?ref=bvad-github-readme>
+- Support: <https://www.creative-tim.com/contact-us?ref=bvad-github-readme>
+- Issues: [Github Issues Page](https://github.com/creativetimofficial/bootstrap-vue-argon-dashboard/issues?ref=bvad-github-readme)
 
 ## Reporting Issues
-We use GitHub Issues as the official bug tracker for Vue Now UI Kit. Here are some advices for our users that want to report an issue:
 
-1. Make sure that you are using the latest version of the Vue Now UI Kit. Check the CHANGELOG from your ui kit on our [website](https://www.creative-tim.com/).
+We use GitHub Issues as the official bug tracker for the BootstrapVue Argon Dashboard. Here are some advices for our users that want to report an issue:
+
+1. Make sure that you are using the latest version of the BootstrapVue Argon Dashboard. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/?ref=bvad-github-readme).
 2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
 
-## Technical Support or Questions
-
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
-
 ## Licensing
 
-- Copyright 2018 Creative Tim (https://www.creative-tim.com)
-- Licensed under MIT (https://github.com/creativetimofficial/vue-now-ui-kit/blob/master/LICENSE.md)
+- Copyright 2020 Creative Tim (https://www.creative-tim.com/?ref=bvad-github-readme)
+
+- Licensed under MIT (https://github.com/creativetimofficial/vue-argon-dashboard/blob/master/LICENSE.md)
 
 ## Useful Links
 
-More products from Creative Tim: <https://www.creative-tim.com/products>
+- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w?ref=creativetim)
+- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=bvad-github-readme) (earn money)
+- [Blog Creative Tim](http://blog.creative-tim.com/?ref=bvad-github-readme)
+- [Free Products](https://www.creative-tim.com/bootstrap-themes/free?ref=bvad-github-readme) from Creative Tim
+- [Premium Products](https://www.creative-tim.com/bootstrap-themes/premium?ref=bvad-github-readme) from Creative Tim
+- [React Products](https://www.creative-tim.com/bootstrap-themes/react-themes?ref=bvad-github-readme) from Creative Tim
+- [Angular Products](https://www.creative-tim.com/bootstrap-themes/angular-themes?ref=bvad-github-readme) from Creative Tim
+- [VueJS Products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes?ref=bvad-github-readme) from Creative Tim
+- [More products](https://www.creative-tim.com/bootstrap-themes?ref=bvad-github-readme) from Creative Tim
+- Check our Bundles [here](https://www.creative-tim.com/bundles?ref=bvad-github-readme)
 
-Tutorials: <https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w>
+### Social Media
 
-Freebies: <https://www.creative-tim.com/products>
+Twitter: <https://twitter.com/CreativeTim?ref=creativetim>
 
-Affiliate Program (earn money): <https://www.creative-tim.com/affiliates/new>
+Facebook: <https://www.facebook.com/CreativeTim?ref=creativetim>
 
-Social Media:
+Dribbble: <https://dribbble.com/creativetim?ref=creativetim>
 
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Google+: <https://plus.google.com/+CreativetimPage>
-
-Instagram: <https://instagram.com/creativetimofficial>
+Instagram: <https://www.instagram.com/CreativeTimOfficial?ref=creativetim>

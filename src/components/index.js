@@ -1,48 +1,52 @@
-import Alert from './Alert';
-import Checkbox from './Inputs/Checkbox.vue';
-import Radio from './Inputs/Radio.vue';
-import FormGroupInput from './Inputs/formGroupInput.vue';
-import Switch from './Switch.vue';
+import BaseCheckbox from './Inputs/BaseCheckbox.vue';
+import BaseAlert from './BaseAlert.vue';
+import BaseRadio from './Inputs/BaseRadio.vue';
+import BaseInput from './Inputs/BaseInput.vue';
 import Badge from './Badge';
-import Progress from './Progress.vue';
-import Button from './Button.vue';
+import BaseProgress from './BaseProgress.vue';
+import BaseButton from './BaseButton.vue';
 
-import DropDown from './Dropdown.vue';
+import BaseDropdown from './BaseDropdown.vue';
+import BaseTable from './BaseTable.vue';
 
 import Card from './Cards/Card.vue';
-import Collapse from './Collapse/Collapse.vue';
-import CollapseItem from './Collapse/CollapseItem.vue';
-import Navbar from './Navbar/Navbar';
-import NavLink from './Navbar/NavLink';
+import StatsCard from './Cards/StatsCard.vue';
+import BaseNav from './Navbar/BaseNav';
 import NavbarToggleButton from './Navbar/NavbarToggleButton';
+
 import TabPane from './Tabs/Tab.vue';
 import Tabs from './Tabs/Tabs.vue';
+import Collapse from './Collapse/Collapse.vue';
+import CollapseItem from './Collapse/CollapseItem.vue';
 import Modal from './Modal.vue';
-import Parallax from './Parallax.vue';
-import Slider from './Slider.vue';
+import BaseSlider from './BaseSlider.vue';
+import LoadingPanel from './LoadingPanel.vue';
 
-import Pagination from './Pagination.vue';
+import BasePagination from './BasePagination.vue';
+
+import SidebarPlugin from './SidebarPlugin';
 
 export {
-  Alert,
-  Collapse,
-  CollapseItem,
-  Checkbox,
-  Switch,
+  BaseCheckbox,
   Badge,
-  Progress,
-  Pagination,
-  Radio,
-  FormGroupInput,
+  BaseAlert,
+  BaseProgress,
+  BasePagination,
+  BaseRadio,
+  BaseInput,
   Card,
-  DropDown,
-  Navbar,
+  StatsCard,
+  BaseTable,
+  BaseDropdown,
+  SidebarPlugin,
+  BaseNav,
   NavbarToggleButton,
-  NavLink,
   TabPane,
   Tabs,
   Modal,
-  Parallax,
-  Slider,
-  Button
+  BaseSlider,
+  BaseButton,
+  Collapse,
+  CollapseItem,
+  LoadingPanel
 };

@@ -7,47 +7,35 @@
         tabNavWrapperClasses
       ]"
     >
-      <ul
-        class="nav"
+      <b-nav
+        class="nav-pills"
         role="tablist"
-        v-bind="$attrs"
         :class="[
-          tabTypeClass,
-          { 'nav-pills-icons': icons },
-          { 'nav-pills': pills },
-          { 'nav-tabs': !pills },
+          `nav-pills-${type}`,
           { 'flex-column': vertical },
           { 'justify-content-center': centered },
           tabNavClasses
         ]"
       >
-        <li
+        <b-nav-item
           v-for="tab in tabs"
-          class="nav-item active"
+          class="active"
           data-toggle="tab"
           role="tablist"
-          aria-expanded="true"
+          :active="tab.active"
           :key="tab.id"
+          :href="`#${tab.id}`"
+          @click.prevent="activateTab(tab)"
+          :aria-expanded="tab.active"
         >
-          <a
-            data-toggle="tab"
-            role="tablist"
-            :href="`#${tab.id}`"
-            @click.prevent="activateTab(tab)"
-            :aria-expanded="tab.active"
-            class="nav-link"
-            :class="{ active: tab.active, disabled: tab.disabled }"
-          >
-            <tab-item-content :tab="tab"> </tab-item-content>
-          </a>
-        </li>
-      </ul>
+          <tab-item-content :tab="tab"> </tab-item-content>
+        </b-nav-item>
+      </b-nav>
     </div>
     <div
       class="tab-content"
       :class="[
-        { 'tab-space': !vertical && !noContentSpace },
-        'text-left',
+        { 'tab-space': !vertical },
         { 'col-md-8': vertical && !tabContentClasses },
         tabContentClasses
       ]"
@@ -60,12 +48,11 @@
 <script>
 export default {
   name: 'tabs',
-  inheritAttrs: false,
   components: {
     TabItemContent: {
       props: ['tab'],
       render(h) {
-        return h('div', [this.tab.$slots.label || this.tab.label]);
+        return h('div', [this.tab.$slots.title || this.tab.title]);
       }
     }
   },
@@ -78,74 +65,60 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'default',
+      default: 'primary',
       validator: value => {
         let acceptedValues = [
           'primary',
           'info',
           'success',
           'warning',
-          'danger',
-          'default',
-          'neutral'
+          'danger'
         ];
         return acceptedValues.indexOf(value) !== -1;
       }
     },
     activeTab: {
       type: String,
-      default: ''
+      default: '',
+      description: 'Active tab name'
     },
     tabNavWrapperClasses: {
       type: [String, Object],
-      default: ''
+      default: '',
+      description: 'ul wrapper css classes'
     },
     tabNavClasses: {
       type: [String, Object],
-      default: ''
+      default: '',
+      description: 'ul css classes'
     },
     tabContentClasses: {
       type: [String, Object],
-      default: ''
+      default: '',
+      description: 'tab content css classes'
     },
     vertical: Boolean,
-    noContentSpace: Boolean,
-    icons: Boolean,
     centered: Boolean,
-    value: String,
-    pills: Boolean
+    value: String
   },
   data() {
     return {
       tabs: []
     };
   },
-  computed: {
-    tabTypeClass() {
-      let baseClass = this.pills ? 'pills' : 'tabs';
-      if (this.type) {
-        return `nav-${baseClass}-${this.type}`;
-      }
-      return '';
-    }
-  },
   methods: {
-    findAndActivateTab(label) {
-      let tabToActivate = this.tabs.find(t => t.label === label);
+    findAndActivateTab(title) {
+      let tabToActivate = this.tabs.find(t => t.title === title);
       if (tabToActivate) {
         this.activateTab(tabToActivate);
       }
     },
     activateTab(tab) {
-      if (tab.disabled) {
-        return;
-      }
       if (this.handleClick) {
         this.handleClick(tab);
       }
       this.deactivateTabs();
       tab.active = true;
-      this.$emit('input', tab.label || tab.id);
     },
     deactivateTabs() {
       this.tabs.forEach(tab => {
@@ -184,3 +157,5 @@ export default {
   }
 };
 </script>
+
+<style scoped></style>

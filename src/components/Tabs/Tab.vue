@@ -2,7 +2,7 @@
   <div
     class="tab-pane"
     v-show="active"
-    :id="id || label"
+    :id="id || title"
     :class="{ active: active }"
     :aria-expanded="active"
   >
@@ -12,11 +12,7 @@
 <script>
 export default {
   name: 'tab-pane',
-  props: {
-    label: String,
-    id: String,
-    disabled: Boolean
-  },
+  props: ['title', 'id'],
   inject: ['addTab', 'removeTab'],
   data() {
     return {

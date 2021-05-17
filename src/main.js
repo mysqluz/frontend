@@ -1,38 +1,31 @@
 /*!
 
- =========================================================
- * Vue Now UI Kit - v1.1.0
- =========================================================
+=========================================================
+* BootstrapVue Argon Dashboard - v1.0.0
+=========================================================
 
- * Product Page: https://www.creative-tim.com/product/now-ui-kit
- * Copyright 2019 Creative Tim (http://www.creative-tim.com)
+* Product Page: https://www.creative-tim.com/product/bootstrap-vue-argon-dashboard
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
 
- * Designed by www.invisionapp.com Coded by www.creative-tim.com
+* Coded by www.creative-tim.com
 
- =========================================================
+=========================================================
 
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
- */
+*/
 import Vue from 'vue';
+import DashboardPlugin from './plugins/dashboard-plugin';
 import App from './App.vue';
-// You can change this import to `import router from './starterRouter'` to quickly start development from a blank layout.
-import router from "./router";
-import store from './store';
-import {getAPI} from "@/axios-api";
-import NowUiKit from './plugins/now-ui-kit';
-import vueCodeditor from "vue-codeditor";
 
-Vue.config.productionTip = false;
-Vue.component(vueCodeditor);
+// router setup
+import router from './routes/router';
+// plugin setup
+Vue.use(DashboardPlugin);
 
-// set auth header
-getAPI.defaults.headers.common['Authorization'] = `Token ${store.state.token}`;
-
-Vue.use(NowUiKit);
-
+/* eslint-disable no-new */
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app');
+  el: '#app',
+  render: h => h(App),
+  router
+});

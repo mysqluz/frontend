@@ -1,22 +1,17 @@
 <template>
-  <div class="card card-plain">
-    <div role="tab" id="headingOne" class="card-header">
+  <b-card no-body>
+    <b-card-header role="tab" class="card-header" :aria-expanded="active">
       <a
         data-toggle="collapse"
         data-parent="#accordion"
         :href="`#${itemId}`"
         @click.prevent="activate"
-        :aria-expanded="active"
         :aria-controls="`content-${itemId}`"
       >
-        <slot name="title">
-          {{ title }}
-        </slot>
-        <slot name="icon">
-          <i v-if="!noIcon" class="now-ui-icons arrows-1_minimal-down"></i>
-        </slot>
+        <slot name="title"> {{ title }} </slot>
+        <i class="tim-icons icon-minimal-down"></i>
       </a>
-    </div>
+    </b-card-header>
     <collapse-transition :duration="animationDuration">
       <div
         v-show="active"
@@ -25,12 +20,10 @@
         :aria-labelledby="title"
         class="collapsed"
       >
-        <div class="card-body">
-          <slot></slot>
-        </div>
+        <div class="card-body"><slot></slot></div>
       </div>
     </collapse-transition>
-  </div>
+  </b-card>
 </template>
 <script>
 import { CollapseTransition } from 'vue2-transitions';
@@ -43,10 +36,10 @@ export default {
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
+      description: 'Collapse item title'
     },
-    id: String,
-    noIcon: Boolean
+    id: String
   },
   inject: {
     animationDuration: {
@@ -77,10 +70,12 @@ export default {
   },
   methods: {
     activate() {
+      let wasActive = this.active;
       if (!this.multipleActive) {
         this.deactivateAll();
       }
-      this.active = !this.active;
+      this.active = !wasActive;
+      console.log(this.active)
     }
   },
   mounted() {

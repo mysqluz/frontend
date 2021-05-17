@@ -1,67 +1,73 @@
 <template>
-  <div
-    class="card"
-    :class="[
-      { 'card-plain': plain },
-      { 'card-raised': raised },
-      { [`card-${type}`]: type }
-    ]"
-    :data-background-color="color"
-  >
-    <h6 class="card-category" v-if="$slots.category || category">
-      {{ category }}
-    </h6>
-    <div class="card-image" v-if="$slots.image">
-      <slot name="image"></slot>
-    </div>
+  <b-card
+      no-body
+       :class="[
+         {'card-lift--hover': hover},
+         {'shadow': shadow},
+         {[`shadow-${shadowSize}`]: shadowSize},
+         {[`bg-gradient-${gradient}`]: gradient},
+         {[`bg-${type}`]: type}
+       ]">
 
-    <div class="card-avatar" v-if="$slots.avatar">
-      <slot name="avatar"></slot>
-    </div>
-
-    <div class="info" v-if="$slots.info">
-      <slot name="info"></slot>
-    </div>
-
-    <div
-      class="card-header"
-      :class="headerClasses"
-      v-if="$slots.header || title"
-    >
+    <slot name="image"></slot>
+    <b-card-header :class="headerClasses" v-if="$slots.header">
       <slot name="header">
-        <h1 v-if="title" class="card-title">{{ title }}</h1>
-        <h3 v-if="subTitle" class="card-category">{{ subTitle }}</h3>
-        <p v-if="description" class="card-description">{{ description }}</p>
       </slot>
-    </div>
-    <div v-if="$slots.default" class="card-body" :class="cardBodyClasses">
+    </b-card-header>
+    <b-card-body :class="bodyClasses" v-if="!noBody">
       <slot></slot>
-    </div>
+    </b-card-body>
 
-    <slot name="raw-content"></slot>
+    <slot v-if="noBody"></slot>
 
-    <hr v-if="$slots.footer && !noFooterLine" />
-    <div class="card-footer" v-if="$slots.footer">
+    <b-card-footer :class="footerClasses" v-if="$slots.footer">
       <slot name="footer"></slot>
-    </div>
-  </div>
+    </b-card-footer>
+  </b-card>
 </template>
 <script>
-export default {
-  name: 'card',
-  props: {
-    type: String,
-    title: String,
-    subTitle: String,
-    category: String,
-    color: String,
-    description: String,
-    noFooterLine: Boolean,
-    plain: Boolean,
-    raised: Boolean,
-    cardBodyClasses: [String, Object, Array],
-    headerClasses: [String, Object, Array]
-  }
-};
+  export default {
+    name: "card",
+    props: {
+      type: {
+        type: String,
+        description: "Card type"
+      },
+      gradient: {
+        type: String,
+        description: "Card background gradient type (warning,danger etc)"
+      },
+      hover: {
+        type: Boolean,
+        description: "Whether card should move on hover"
+      },
+      shadow: {
+        type: Boolean,
+        description: "Whether card has shadow"
+      },
+      shadowSize: {
+        type: String,
+        description: "Card shadow size"
+      },
+      noBody: {
+        type: Boolean,
+        default: false,
+        description: "Whether card should have wrapper body class"
+      },
+      bodyClasses: {
+        type: [String, Object, Array],
+        description: "Card body css classes"
+      },
+      headerClasses: {
+        type: [String, Object, Array],
+        description: "Card header css classes"
+      },
+      footerClasses: {
+        type: [String, Object, Array],
+        description: "Card footer css classes"
+      }
+    }
+  };
 </script>
-<style></style>
+<style>
+</style>
