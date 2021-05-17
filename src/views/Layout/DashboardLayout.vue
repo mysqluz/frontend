@@ -13,6 +13,15 @@
         </sidebar-item>
 
         <sidebar-item
+          :link="{
+            name: 'News',
+            path: '/news',
+            icon: 'ni ni-tv-2 text-primary',
+          }"
+        >
+        </sidebar-item>
+
+        <sidebar-item
             :link="{
               name: 'Icons',
               path: '/icons',
