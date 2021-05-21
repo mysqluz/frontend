@@ -49,9 +49,9 @@
                               class="mb-3"
                               prepend-icon="ni ni-hat-3"
                               placeholder="Name"
-                              name="Name"
+                              name="Username"
                               :rules="{required: true}"
-                              v-model="model.name">
+                              v-model="username">
                   </base-input>
 
                   <base-input alternative
@@ -60,7 +60,25 @@
                               placeholder="Email"
                               name="Email"
                               :rules="{required: true, email: true}"
-                              v-model="model.email">
+                              v-model="email">
+                  </base-input>
+
+                  <base-input alternative
+                              class="mb-3"
+                              prepend-icon="ni ni-hat-3"
+                              placeholder="First Name"
+                              :rules="{required: true}"
+                              v-model="firstName"
+                              name="First name">
+                  </base-input>
+
+                  <base-input alternative
+                              class="mb-3"
+                              prepend-icon="ni ni-hat-3"
+                              placeholder="Last Name"
+                              :rules="{required: true}"
+                              v-model="lastName"
+                              name="Last name">
                   </base-input>
 
                   <base-input alternative
@@ -68,23 +86,44 @@
                               prepend-icon="ni ni-lock-circle-open"
                               placeholder="password"
                               type="password"
-                              name="Password"
-                              :rules="{required: true, min: 6}"
-                              v-model="model.password">
+                              name="password"
+                              :rules="{required: true, min: 3}"
+                              v-model="password">
                   </base-input>
-                  <div class="text-muted font-italic"><small>password strength: <span
-                    class="text-success font-weight-700">strong</span></small></div>
-                  <b-row class=" my-4">
+<!--                  <div class="text-muted font-italic"><small>password strength: <span-->
+<!--                      class="text-success font-weight-700">strong</span></small></div>-->
+
+                  <base-input v-model="confirmPassword"
+                              alternative
+                              class="mb-3"
+                              prepend-icon="ni ni-lock-circle-open"
+                              placeholder="confirm password"
+                              type="password"
+                              name="confirmPassword"
+                              :rules="{required: true, min: 3}">
+                  </base-input>
+
+                  <img :src="image" alt="Image" style="width: -moz-available">
+                  <base-input alternative
+                              class="mb-3"
+                              prepend-icon="ni ni-lock-circle-open"
+                              type="file"
+                              name="image"
+                              :rules="{required: true}"
+                              @change="handleImage">
+                  </base-input>
+<!--                  <b-row class=" my-4">
                     <b-col cols="12">
-                      <base-input :rules="{ required: { allowFalse: false } }" name=Privacy Policy>
-                        <b-form-checkbox v-model="model.agree">
+                      <base-input name=Privacy Policy>
+                        <b-form-checkbox>
                           <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
                         </b-form-checkbox>
                       </base-input>
                     </b-col>
-                  </b-row>
+                  </b-row>-->
                   <div class="text-center">
-                    <b-button type="submit" variant="primary" class="mt-4">Create account</b-button>
+                    <b-button @click="register" variant="primary" class="mt-4">Create account</b-button>
+                    <p v-if="msg">{{ msg }}</p>
                   </div>
                 </b-form>
               </validation-observer>
@@ -96,20 +135,61 @@
   </div>
 </template>
 <script>
+import AuthService from "@/services/AuthService";
 
   export default {
     name: 'register',
     data() {
       return {
-        model: {
-          name: '',
-          email: '',
-          password: '',
-          agree: false
-        }
+        APIData: [],
+        username: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        password: '',
+        confirmPassword: '',
+        image: '',
+        msg: ''
       }
     },
     methods: {
+      handleImage(e) {
+        const selectedImage = e.target.files[0];
+        this.createBase64Image(selectedImage);
+      },
+      createBase64Image(fileObject) {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          this.image = e.target.result;
+          // console.log(e.target.result);
+        };
+        reader.readAsDataURL(fileObject);
+        // console.log(reader);
+      },
+      async register() {
+        try {
+          const data = {
+            username: this.username,
+            email: this.email,
+            first_name: this.firstName,
+            last_name: this.lastName,
+            password: this.password,
+            confirm_password: this.confirmPassword,
+            avatar: this.image
+          };
+          const response = await AuthService.signUp(data);
+
+          const token = response.token;
+          const user = response.user;
+          this.$store.dispatch('login', { token, user });
+
+          this.msg = response;
+          this.$router.push('/');
+        } catch (e) {
+          this.msg = e;
+        }
+      },
       onSubmit() {
         // this will be called only after form is valid. You can do an api call here to register users
       }
