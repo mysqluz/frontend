@@ -48,7 +48,7 @@
                   <base-input alternative
                               class="mb-3"
                               prepend-icon="ni ni-hat-3"
-                              placeholder="Name"
+                              placeholder="Username"
                               name="Username"
                               :rules="{required: true}"
                               v-model="username">
@@ -66,19 +66,10 @@
                   <base-input alternative
                               class="mb-3"
                               prepend-icon="ni ni-hat-3"
-                              placeholder="First Name"
+                              placeholder="Full Name"
                               :rules="{required: true}"
-                              v-model="firstName"
+                              v-model="fullname"
                               name="First name">
-                  </base-input>
-
-                  <base-input alternative
-                              class="mb-3"
-                              prepend-icon="ni ni-hat-3"
-                              placeholder="Last Name"
-                              :rules="{required: true}"
-                              v-model="lastName"
-                              name="Last name">
                   </base-input>
 
                   <base-input alternative
@@ -144,8 +135,7 @@ import AuthService from "@/services/AuthService";
         APIData: [],
         username: '',
         email: '',
-        firstName: '',
-        lastName: '',
+        fullname: '',
         password: '',
         confirmPassword: '',
         image: '',
@@ -172,16 +162,15 @@ import AuthService from "@/services/AuthService";
           const data = {
             username: this.username,
             email: this.email,
-            first_name: this.firstName,
-            last_name: this.lastName,
+            fullname: this.fullname,
             password: this.password,
             confirm_password: this.confirmPassword,
             avatar: this.image
           };
           const response = await AuthService.signUp(data);
 
-          const token = response.token;
-          const user = response.user;
+          const token = response.auth_token;
+          const user = response;
           this.$store.dispatch('login', { token, user });
 
           this.msg = response;

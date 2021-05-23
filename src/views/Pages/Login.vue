@@ -32,7 +32,7 @@
                   <base-input alternative
                               class="mb-3"
                               name="Password"
-                              :rules="{required: true, min: 6}"
+                              :rules="{required: true, min: 3}"
                               prepend-icon="ni ni-lock-circle-open"
                               type="password"
                               placeholder="Password"

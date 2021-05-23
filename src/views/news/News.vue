@@ -36,9 +36,9 @@
   import StatsCard from '@/components/Cards/StatsCard';
 
   // Tables
-  import SocialTrafficTable from './Dashboard/SocialTrafficTable';
-  import PageVisitsTable from './Dashboard/PageVisitsTable';
-  import {getAPI} from "@/axios-api";
+  import NewsService from "../../services/NewsService";
+  import PageVisitsTable from "../Dashboard/PageVisitsTable";
+  import SocialTrafficTable from "../Dashboard/SocialTrafficTable";
 
   export default {
     components: {
@@ -54,15 +54,9 @@
         news: []
       };
     },
-    mounted() {
-      getAPI.get('/news/')
-          .then(response => {
-            console.log('News API received data')
-            this.news = response.data.results
-          })
-          .catch(err => {
-            console.log('xatolik', err)
-          })
+    async mounted() {
+      const response = await NewsService.index();
+      this.news = response.results
     }
   };
 </script>
