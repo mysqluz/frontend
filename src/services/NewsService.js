@@ -8,7 +8,7 @@ export default {
     },
     show(credentials) {
         return getAPI
-            .post('/news/', credentials)
+            .get('/news/' + credentials)
             .then(response => response.data);
     },
 };

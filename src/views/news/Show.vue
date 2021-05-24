@@ -4,45 +4,43 @@
     <base-header class="pb-6 pb-8 pt-5 pt-md-8 bg-gradient-success">
       <!-- Card stats -->
       <b-row>
-        <b-col xl="3" md="6" v-for="obj in news">
+        <b-col md="12">
           <b-card
-              :title="obj.title"
-              :img-src="obj.image"
+              :title="news.title"
+              :img-src="news.image"
               img-alt="Image"
               img-top
               tag="article"
-              style="max-width: 20rem;"
+              style=""
               class="mb-2"
           >
 
-            <b-button href="javascript:;" variant="primary">Read</b-button>
+            <b-card-text v-html="news.content">
+
+            </b-card-text>
+
+            <small class="fa fa-eye"> {{ news.views }}</small>
+
           </b-card>
         </b-col>
       </b-row>
     </base-header>
 
-    <!--Charts-->
-
   </div>
 </template>
 <script>
-  // Charts
-  import * as chartConfigs from '@/components/Charts/config';
-  import LineChart from '@/components/Charts/LineChart';
-  import BarChart from '@/components/Charts/BarChart';
 
-  // Components
-  import BaseProgress from '@/components/BaseProgress';
-  import StatsCard from '@/components/Cards/StatsCard';
+// Components
+import BaseProgress from '@/components/BaseProgress';
+import StatsCard from '@/components/Cards/StatsCard';
 
-  // Tables
-  import SocialTrafficTable from "../Dashboard/SocialTrafficTable";
-  import PageVisitsTable from "../Dashboard/PageVisitsTable";
+// Tables
+import SocialTrafficTable from "../Dashboard/SocialTrafficTable";
+import PageVisitsTable from "../Dashboard/PageVisitsTable";
+import NewsService from "../../services/NewsService";
 
-  export default {
+export default {
     components: {
-      LineChart,
-      BarChart,
       BaseProgress,
       StatsCard,
       PageVisitsTable,
@@ -55,12 +53,18 @@
     },
     mounted() {
 
+    },
+    async created() {
+      console.log('kjdkjhsbkdcj')
+      const response = await NewsService.show(this.$route.params.slug);
+      this.news = response;
+      console.log(response);
     }
   };
 </script>
 <style>
 .el-table .cell{
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0;
+  padding-right: 0;
 }
 </style>
