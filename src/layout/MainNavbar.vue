@@ -1,0 +1,147 @@
+<template>
+  <navbar
+    position="fixed"
+    type="primary"
+    :transparent="transparent"
+    :color-on-scroll="colorOnScroll"
+    menu-classes="ml-auto"
+  >
+    <template>
+      <router-link v-popover:popover1 class="navbar-brand" to="/">
+        Now Ui Kit
+      </router-link>
+      <el-popover
+        ref="popover1"
+        popper-class="popover"
+        placement="bottom"
+        width="200"
+        trigger="hover"
+      >
+        <div class="popover-body">
+          Designed by Invision. Coded by Creative Tim
+        </div>
+      </el-popover>
+    </template>
+    <template slot="navbar-menu">
+      <li class="nav-item">
+        <router-link :to="{ name: 'news' }" class="nav-link">News</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link :to="{ name: 'problems' }" class="nav-link">Problems</router-link>
+      </li>
+      <drop-down
+        tag="li"
+        title="Components"
+        icon="now-ui-icons design_app"
+        class="nav-item"
+      >
+        <nav-link to="/">
+          <i class="now-ui-icons business_chart-pie-36"></i> All components
+        </nav-link>
+        <a
+          href="https://demos.creative-tim.com/vue-now-ui-kit/documentation"
+          target="_blank"
+          class="dropdown-item"
+        >
+          <i class="now-ui-icons design_bullet-list-67"></i> Documentation
+        </a>
+      </drop-down>
+      <drop-down
+              tag="li"
+              title="Examples"
+              icon="now-ui-icons design_image"
+              class="nav-item"
+      >
+        <nav-link to="/landing">
+          <i class="now-ui-icons education_paper"></i> Landing
+        </nav-link>
+        <nav-link to="/login">
+          <i class="now-ui-icons users_circle-08"></i> Login
+        </nav-link>
+        <nav-link to="/register">
+          <i class="now-ui-icons users_circle-08"></i> Register
+        </nav-link>
+        <nav-link to="/news">
+          <i class="now-ui-icons users_single-02"></i> News
+        </nav-link>
+      </drop-down>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          rel="tooltip"
+          title="Follow us on Twitter"
+          data-placement="bottom"
+          href="https://twitter.com/CreativeTim"
+          target="_blank"
+        >
+          <i class="fab fa-twitter"></i>
+          <p class="d-lg-none d-xl-none">Twitter</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          rel="tooltip"
+          title="Like us on Facebook"
+          data-placement="bottom"
+          href="https://www.facebook.com/CreativeTim"
+          target="_blank"
+        >
+          <i class="fab fa-facebook-square"></i>
+          <p class="d-lg-none d-xl-none">Facebook</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          rel="tooltip"
+          title="Follow us on Instagram"
+          data-placement="bottom"
+          href="https://www.instagram.com/CreativeTimOfficial"
+          target="_blank"
+        >
+          <i class="fab fa-instagram"></i>
+          <p class="d-lg-none d-xl-none">Instagram</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <button v-if="this.$store.getters.isLoggedIn"
+
+          title="logout"
+          data-placement="bottom"
+          @click="logout"
+        >
+          <i class="fab fa fa-sign-out">{{ this.$store.getters.getUser.username }}</i>
+          <p class=""> Logout</p>
+        </button>
+      </li>
+    </template>
+  </navbar>
+</template>
+
+<script>
+import { DropDown, Navbar, NavLink } from '@/components';
+import { Popover } from 'element-ui';
+
+export default {
+  name: 'main-navbar',
+  props: {
+    transparent: Boolean,
+    colorOnScroll: Number
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+    }
+  },
+  components: {
+    DropDown,
+    Navbar,
+    NavLink,
+    [Popover.name]: Popover
+  }
+};
+</script>
+
+<style scoped></style>
