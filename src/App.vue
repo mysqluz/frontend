@@ -1,12 +1,7 @@
 <template>
-  <div id="app">
-    <router-view name="header" />
-    <div class="wrapper">
-      <router-view @authenticated="setAuthenticated" />
-    </div>
-    <router-view name="footer" />
-  </div>
+  <router-view></router-view>
 </template>
+
 <script>
 export default {
   data() {
@@ -28,9 +23,4 @@ export default {
     }
   }
 };
-</template>
-
-<script>
-export default {
-}
 </script>
