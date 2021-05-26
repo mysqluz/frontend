@@ -33,45 +33,71 @@
                      tag="li"
                      title-tag="a"
                      title-classes="nav-link pr-0">
-        <a href="#" class="nav-link pr-0" @click.prevent slot="title-container">
+        <template v-if="!store.getters['isLoggedIn']">
+          <a href="#" class="nav-link pr-0" @click.prevent slot="title-container">
           <b-media no-body class="align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="img/theme/team-4.jpg">
+                    <img alt="Image placeholder" src="img/login2.png">
                   </span>
-            <b-media-body class="ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
-            </b-media-body>
           </b-media>
         </a>
-
         <template>
+            <b-dropdown-header class="noti-title">
+              <h6 class="text-overflow m-0">Authorization!</h6>
+            </b-dropdown-header>
+            <b-dropdown-item href="/login">
+              <i class="ni ni-lock-circle-open"></i>
+              <router-link to="/login"><span>Sign in</span></router-link>
+            </b-dropdown-item>
+            <b-dropdown-item href="/register">
+              <i class="ni ni-single-02"></i>
+              <router-link to="/register"><span>Sign up</span></router-link>
+            </b-dropdown-item>
 
-          <b-dropdown-header class="noti-title">
-            <h6 class="text-overflow m-0">Welcome!</h6>
-          </b-dropdown-header>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-single-02"></i>
-            <span>My profile</span>
-          </b-dropdown-item>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-settings-gear-65"></i>
-            <span>Settings</span>
-          </b-dropdown-item>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-calendar-grid-58"></i>
-            <span>Activity</span>
-          </b-dropdown-item>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-support-16"></i>
-            <span>Support</span>
-          </b-dropdown-item>
-          <div class="dropdown-divider"></div>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-user-run"></i>
-            <span>Logout</span>
-          </b-dropdown-item>
-
+          </template>
         </template>
+        <template v-else>
+          <a href="#" class="nav-link pr-0" @click.prevent slot="title-container">
+            <b-media no-body class="align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" :src="store.getters['getUser'].avatar">
+                  </span>
+              <b-media-body class="ml-2 d-none d-lg-block">
+                <span class="mb-0 text-sm  font-weight-bold"> {{ store.getters["getUser"].fullname ? store.getters["getUser"].fullname : store.getters["getUser"].username }} </span>
+              </b-media-body>
+            </b-media>
+          </a>
+
+          <template>
+
+            <b-dropdown-header class="noti-title">
+              <h6 class="text-overflow m-0">Welcome!</h6>
+            </b-dropdown-header>
+            <b-dropdown-item href="#!">
+              <i class="ni ni-single-02"></i>
+              <span>My profile</span>
+            </b-dropdown-item>
+            <b-dropdown-item href="#!">
+              <i class="ni ni-settings-gear-65"></i>
+              <span>Settings</span>
+            </b-dropdown-item>
+            <b-dropdown-item href="#!">
+              <i class="ni ni-calendar-grid-58"></i>
+              <span>Activity</span>
+            </b-dropdown-item>
+            <b-dropdown-item href="#!">
+              <i class="ni ni-support-16"></i>
+              <span>Support</span>
+            </b-dropdown-item>
+            <div class="dropdown-divider"></div>
+            <b-dropdown-item href="#!">
+              <i class="ni ni-user-run"></i>
+              <router-link to="/logout"><span>Logout</span></router-link>
+            </b-dropdown-item>
+
+          </template>
+        </template>
+
       </base-dropdown>
     </b-navbar-nav>
   </base-nav>
@@ -79,7 +105,8 @@
 <script>
 import { CollapseTransition } from 'vue2-transitions';
 import { BaseNav, Modal } from '@/components';
-
+import store from "@/store";
+console.log("strore  ", store.getters["getUser"]) //TODO: Delete this line after using
 export default {
   components: {
     CollapseTransition,
@@ -101,6 +128,7 @@ export default {
   },
   data() {
     return {
+      store: this.$store,
       activeNotifications: false,
       showMenu: false,
       searchModalVisible: false,

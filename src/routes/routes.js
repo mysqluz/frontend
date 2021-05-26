@@ -2,6 +2,7 @@ import DashboardLayout from '@/views/Layout/DashboardLayout.vue';
 import AuthLayout from '@/views/Pages/AuthLayout.vue';
 
 import NotFound from '@/views/NotFoundPage.vue';
+import store from "@/store";
 
 const routes = [
   {
@@ -69,6 +70,24 @@ const routes = [
         path: '/register',
         name: 'register',
         component: () => import(/* webpackChunkName: "demo" */ '../views/Pages/Register.vue')
+      },
+      {
+        path: '/logout',
+        name: 'logout',
+        component: {
+          beforeRouteEnter(to, from, next) {
+            const destination = {
+              path:  "/",
+              query: from.query,
+              params: from.params
+            };
+            if (!from) {
+              console.log("no from");
+            }
+            store.dispatch("logout");
+            next(destination);
+          }
+        }
       },
       { path: '*', component: NotFound }
     ]
