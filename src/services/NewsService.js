@@ -1,9 +1,9 @@
 import {getAPI} from "@/axios-api";
 
 export default {
-    index() {
+    index(page=1) {
         return getAPI
-            .get('/news/')
+            .get('/news/?offset=' + (page - 1) * 12)
             .then(response => response.data);
     },
     show(credentials) {

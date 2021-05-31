@@ -9,7 +9,8 @@
               :title="obj.title"
               :img-src="obj.image"
               img-alt="Image"
-              img-top
+              img-left
+              img-width="200px"
               tag="article"
               style=""
               class="mb-2"
@@ -18,7 +19,21 @@
             <router-link class="btn btn-primary" :to="{ name: 'show-news', params: { slug: obj.slug } }">Read</router-link>
           </b-card>
         </b-col>
+
+
       </b-row>
+
+      <div>
+        <b-pagination @page-click="pageClick"
+                      align="center"
+                      size="lg"
+                      v-model="currentPage"
+                      :total-rows="rows"
+                      :per-page="perPage"
+                      first-number
+        ></b-pagination>
+      </div>
+
     </base-header>
 
   </div>
@@ -42,12 +57,23 @@
     },
     data() {
       return {
-        news: []
+        news: [],
+        rows: 1,
+        perPage: 12,
+        currentPage: 1
       };
     },
     async mounted() {
       const response = await NewsService.index();
       this.news = response.results
+      this.rows = response.count
+    },
+    methods: {
+      async pageClick(e, page) {
+        await this.$router.push('?page=' + page)
+        const response = await NewsService.index(page);
+        this.news = response.results
+      }
     }
   };
 </script>
