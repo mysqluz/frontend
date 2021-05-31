@@ -55,7 +55,7 @@
               </el-table-column>
             </el-table>
             <b-card-footer class="py-4 d-flex justify-content-end">
-              <prism-editor v-if="code" language="js" class="my-editor" v-model="code" :highlight="highlighter" line-numbers readonly></prism-editor>
+              <prism-editor v-if="code" class="my-editor" v-model="code" :highlight="highlighter" line-numbers readonly></prism-editor>
             </b-card-footer>
           </b-card>
         </b-col>
@@ -130,7 +130,7 @@ export default {
   font-size: 14px;
   line-height: 1.5;
   padding: 5px;
-  border: #000000 20px;
+  border-left: solid 10px;
 }
 
 /* optional class for removing the outline */

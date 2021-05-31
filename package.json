@@ -34,7 +34,6 @@
     "vue-chartjs": "^3.5.1",
     "vue-cli": "^2.9.6",
     "vue-clipboard2": "^0.3.1",
-    "vue-codeditor": "^1.0.5",
     "vue-flatpickr-component": "^8.1.2",
     "vue-prism-editor": "^1.2.2",
     "vue-router": "^3.0.6",
