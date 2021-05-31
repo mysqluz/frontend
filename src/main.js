@@ -18,6 +18,8 @@ import Vue from 'vue';
 import DashboardPlugin from './plugins/dashboard-plugin';
 import App from './App.vue';
 import store from './store';
+import vueCodeditor from 'vue-codeditor'
+Vue.component(vueCodeditor)
 
 // router setup
 import router from './routes/router';

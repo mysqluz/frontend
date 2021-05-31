@@ -6,9 +6,14 @@ export default {
             .get('/problems/')
             .then(response => response.data);
     },
-    submit(credentials) {
-        return getAPI
-            .post('/tasks/' + credentials)
-            .then(response => response.data);
+    submit(data) {
+        return getAPI.post('/tasks/', data )
+            .then(response => {
+                console.log('problem send');
+                return response;
+            })
+            .catch(err => {
+                console.log(err)
+            })
     },
 };
