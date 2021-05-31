@@ -192,8 +192,8 @@
   </div>
 </template>
 <script>
-import { Button, FormGroupInput } from '@/components';
-import { getAPI } from "@/axios-api";
+import {Button, FormGroupInput} from '@/components';
+import {getAPI} from "@/axios-api";
 
 export default {
   name: 'problems-show',
@@ -271,6 +271,18 @@ export default {
 
           </b-card>
         </b-col>
+        <b-col md="12">
+          <b-card
+              class="mb-2"
+          >
+
+            <b-card-text>
+              <vue-codeditor v-model="source" mode="sql" theme="chrome" />
+            </b-card-text>
+
+            <button class="btn btn-primary" @click="submit">Submit</button>
+          </b-card>
+        </b-col>
       </b-row>
     </base-header>
 
@@ -286,6 +298,7 @@ import StatsCard from '@/components/Cards/StatsCard';
 import SocialTrafficTable from "../Dashboard/SocialTrafficTable";
 import PageVisitsTable from "../Dashboard/PageVisitsTable";
 import ProblemsService from "../../services/ProblemsService";
+import TasksService from "../../services/TasksService";
 
 export default {
   components: {
@@ -296,16 +309,26 @@ export default {
   },
   data() {
     return {
-      problem: []
+      problem: [],
+      source: '',
     };
   },
   mounted() {
 
   },
+  methods: {
+   async submit() {
+      const data = {
+        source: this.source,
+        problem: this.problem.id
+      }
+      const response = await TasksService.submit(data);
+      console.log(response);
+      await this.$router.push('/tasks');
+    }
+  },
   async created() {
-    console.log('kjdkjhsbkdcj')
-    const response = await ProblemsService.show(this.$route.params.id);
-    this.problem = response;
+    this.problem = await ProblemsService.show(this.$route.params.id);
   }
 };
 </script>
@@ -313,5 +336,9 @@ export default {
 .el-table .cell{
   padding-left: 0;
   padding-right: 0;
+}
+.ace_editor.ace-chrome, .ace_gutter-active-line, .ace_text-input {
+  height: 200px !important;
+  font-size: 16px !important;
 }
 </style>
