@@ -7,7 +7,6 @@
         <b-col md="12">
           <b-card
               :title="news.title"
-              :img-src="news.image"
               img-alt="Image"
               img-top
               tag="article"
