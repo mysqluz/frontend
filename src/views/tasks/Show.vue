@@ -1,244 +1,140 @@
 <template>
   <div>
-    <div class="page-header clear-filter" filter-color="orange">
-      <parallax
-          class="page-header-image"
-          style="background-image:url('img/bg5.jpg')"
-      >
-      </parallax>
-      <div class="container">
-        <div class="photo-container">
-          <img src="img/ryan.jpg" alt="" />
-        </div>
-        <h3 class="title">Ryan Scheinder</h3>
-        <p class="category">Photographer</p>
-        <div class="content">
-          <div class="social-description">
-            <h2>26</h2>
-            <p>Comments</p>
-          </div>
-          <div class="social-description">
-            <h2>26</h2>
-            <p>Comments</p>
-          </div>
-          <div class="social-description">
-            <h2>48</h2>
-            <p>Bookmarks</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section section-about-us">
-      <div class="container">
-        <div class="col-md-12">
-          <div class="card mb-4 box-shadow">
-            <img src="https:://via.placeholder.com/150x100" alt="" class="card-img-top">
-            <div class="card-body">
-              <h4>{{ problem.title }}</h4>
-              <p class="card-text" v-html="problem.content">{{ problem.content }}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <p>
-                  <span>Author: </span>
-                  <a v-bind:href="problem.author.url" v-if="problem.author">{{ problem.author.username }}</a>
-                  <span v-else>loading...</span>
-                </p>
-                <p>
-                  <span>Category: </span>
-                  <span class="text-muted" v-if="problem.category">{{ problem.category.name }}</span>
-                  <span v-else>loading...</span>
-                </p>
-                <p><span>Ball: </span> <span class="text-muted">{{ problem.ball }}</span></p>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="card mb-4 box-shadow">
+    <base-header class="pb-6 pb-8 pt-5 pt-md-8 bg-gradient-success">
+      <!-- Card stats -->
+    </base-header>
+    <b-container fluid class="mt--7">
+      <b-row>
+        <b-col>
+          <b-card no-body>
+            <b-card-header class="border-0">
+              <h3 class="mb-0">Task</h3>
+            </b-card-header>
 
-            <div class="card-body">
-              <p>Yechim</p>
-              <vue-codeditor v-model="source" mode="sql" theme="chrome" />
-              <button @click="submit">Submit</button>
-            </div>
-          </div>
-        </div>
-        <div class="separator separator-primary"></div>
-      </div>
-    </div>
-    <div class="section section-team text-center">
-      <div class="container">
-        <h2 class="title">Here is our team</h2>
-        <div class="team">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="team-player">
-                <img
-                  src="img/avatar.jpg"
-                  alt="Thumbnail Image"
-                  class="rounded-circle img-fluid img-raised"
-                />
-                <h4 class="title">Romina Hadid</h4>
-                <p class="category text-primary">Model</p>
-                <p class="description">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
-                </p>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-facebook-square"></i
-                ></a>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <img
-                  src="img/ryan.jpg"
-                  alt="Thumbnail Image"
-                  class="rounded-circle img-fluid img-raised"
-                />
-                <h4 class="title">Ryan Tompson</h4>
-                <p class="category text-primary">Designer</p>
-                <p class="description">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
-                </p>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-linkedin"></i
-                ></a>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <img
-                  src="img/eva.jpg"
-                  alt="Thumbnail Image"
-                  class="rounded-circle img-fluid img-raised"
-                />
-                <h4 class="title">Eva Jenner</h4>
-                <p class="category text-primary">Fashion</p>
-                <p class="description">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
-                </p>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-google-plus"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-youtube"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section section-contact-us text-center">
-      <div class="container">
-        <h2 class="title">Want to work with us?</h2>
-        <p class="description">Your project is very important to us.</p>
-        <div class="row">
-          <div class="col-lg-6 text-center ml-auto mr-auto col-md-8">
-            <fg-input
-              class="input-lg"
-              placeholder="First Name..."
-              v-model="form.firstName"
-              addon-left-icon="now-ui-icons users_circle-08"
-            >
-            </fg-input>
-            <fg-input
-              class="input-lg"
-              placeholder="Email Here..."
-              v-model="form.email"
-              addon-left-icon="now-ui-icons ui-1_email-85"
-            >
-            </fg-input>
-            <div class="textarea-container">
-              <textarea
-                class="form-control"
-                name="name"
-                rows="4"
-                cols="80"
-                v-model="form.message"
-                placeholder="Type a message..."
-              ></textarea>
-            </div>
-            <div class="send-button">
-              <n-button type="primary" round block size="lg"
-                >Send Message</n-button
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <el-table class="table-responsive table"
+                      header-row-class-name="thead-light"
+                      :data="tasks">
+
+              <el-table-column label="Id"
+                               prop="id"
+                               min-width="140px">
+              </el-table-column>
+
+              <el-table-column label="User"
+                               min-width="310px"
+                               prop="name">
+                <template v-slot="{row}">
+                  <b-media no-body class="align-items-center">
+                    <a href="#" class="avatar rounded-circle mr-3">
+                      <img alt="Avatar" :src="row.user.avatar">
+                    </a>
+                    <b-media-body>
+                      <span class="font-weight-600 name mb-0 text-sm">{{ row.user.fullname }}</span>
+                    </b-media-body>
+                  </b-media>
+                </template>
+              </el-table-column>
+              <el-table-column label="Problem"
+                               prop="problem.title"
+                               min-width="140px">
+                <template v-slot="{row}">
+                  <router-link :to="{ name: 'show-problem', params: { id: row.problem.id } }">{{ row.problem.title }}
+                  </router-link>
+                </template>
+              </el-table-column>
+
+              <el-table-column label="Status"
+                               min-width="170px"
+                               prop="status_text">
+                <template v-slot="{row}">
+                  <badge class="badge-dot mr-4" type="">
+                    <i :class="`bg-${statusType(row.status)}`"></i>
+                    <span class="status" :class="`text-${statusType(row.status)}`">{{ row.status_text }}</span>
+                  </badge>
+                </template>
+              </el-table-column>
+            </el-table>
+            <b-card-footer class="py-4 d-flex justify-content-end">
+              <prism-editor v-if="code" language="js" class="my-editor" v-model="code" :highlight="highlighter" line-numbers readonly></prism-editor>
+            </b-card-footer>
+          </b-card>
+        </b-col>
+      </b-row>
+      <div class="mt-5"></div>
+    </b-container>
   </div>
 </template>
 <script>
-import { Button, FormGroupInput } from '@/components';
-import { getAPI } from "@/axios-api";
+import {Table, TableColumn} from 'element-ui'
+import TasksService from "@/services/TasksService";
+import { PrismEditor } from 'vue-prism-editor';
+import 'vue-prism-editor/dist/prismeditor.min.css'; // import the styles somewhere
 
+// import highlighting library (you can use any library you want just return html string)
+import { highlight, languages } from 'prismjs/components/prism-core';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-sql';
+import 'prismjs/themes/prism-tomorrow.css'; // import syntax highlighting styles
 export default {
-  name: 'problems-show',
-  bodyClass: 'problems-show',
+  name: 'light-table',
   components: {
-    [Button.name]: Button,
-    [FormGroupInput.name]: FormGroupInput,
+    [Table.name]: Table,
+    [TableColumn.name]: TableColumn,
+    PrismEditor,
   },
   data() {
     return {
-      form: {
-        firstName: '',
-        email: '',
-        message: ''
-      },
-      problem: [],
-      source: ''
+      tasks: [],
+      code: null
     };
   },
-  methods: {
-    submit() {
-      const data = {
-        source: this.source,
-        problem: this.problem.id
-      }
-      getAPI.post('/tasks/', data )
-          .then(response => {
-            console.log('problem send');
-            this.$router.push('tasks');
-          })
-          .catch(err => {
-            console.log(err)
-          })
+  async mounted() {
+    const response = await TasksService.show(this.$route.params.id);
+    this.tasks = [response]
+    if ('source' in response){
+      this.code = response.source
     }
   },
-  created() {
-    getAPI.get('/problems/' + this.$route.params.id )
-    .then(response => {
-      console.log('problem with id received');
-      this.problem = response.data
-    })
-    .catch(err => {
-      console.log(err)
-    })
+  methods: {
+    highlighter(code) {
+      return highlight(code, languages.sql, 'markup'); // languages.<insert language> to return html with markup
+    },
+
+    statusType(status) {
+      switch (status) {
+        case -2:
+          return 'warning'
+        case -1:
+          return 'info';
+        case 0:
+          return 'danger';
+        case 1:
+          return 'success';
+        case 2:
+          return 'danger';
+      }
+      return '';
+    }
   }
-};
+}
 </script>
-<style></style>
+<style>
+/* required class */
+.my-editor {
+  /* we dont use `language-` classes anymore so thats why we need to add background and text color manually */
+  /*background: #2d2d2d;*/
+  color: #ccc;
+
+  /* you must provide font-family font-size line-height. Example: */
+  font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 5px;
+  border: #000000 20px;
+}
+
+/* optional class for removing the outline */
+.prism-editor__textarea:focus {
+  outline: none;
+}
+</style>

@@ -1,120 +1,125 @@
 <template>
-  <div class="problem">
-    <div class="page-header clear-filter" filter-color="orange">
-      <parallax
-          class="page-header-image"
-          style="background-image:url('img/bg5.jpg')"
-      >
-      </parallax>
-      <div class="container">
-        <div class="photo-container">
-          <img src="img/ryan.jpg" alt="" />
-        </div>
-        <h3 class="title">Ryan Scheinder</h3>
-        <p class="category">Photographer</p>
-        <div class="content">
-          <div class="social-description">
-            <h2>26</h2>
-            <p>Comments</p>
-          </div>
-          <div class="social-description">
-            <h2>26</h2>
-            <p>Comments</p>
-          </div>
-          <div class="social-description">
-            <h2>48</h2>
-            <p>Bookmarks</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card mb-4 box-shadow">
-              <img src="https:://via.placeholder.com/150x100" alt="" class="card-img-top">
-              <div class="card-body">
-                <table class="table table-responsive">
-                  <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Problem</th>
-                    <th>User</th>
-                    <th>Status</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr v-for="task in APIData.results" :key="task.id">
-                    <td>{{ task.id }}</td>
-                    <td>{{ task.problem.title }}</td>
-                    <td>{{ task.user.username }}</td>
-                    <td>
-                      <badge type="success" v-if="task.status == 1">{{ task.status_text }}</badge>
-                      <badge type="danger" v-else>{{ task.status_text }}</badge>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-                <h4>Pagination</h4>
-                <n-pagination
-                    type="primary"
-                    :page-count="Math.ceil(APIData.count/12)"
-                    :total="APIData.count"
-                    v-model="pagination.simple"
-                >
-                </n-pagination>
+  <div>
+    <base-header class="pb-6 pb-8 pt-5 pt-md-8 bg-gradient-success">
+      <!-- Card stats -->
+    </base-header>
+    <b-container fluid class="mt--7">
+      <b-row>
+        <b-col>
+          <template>
+            <b-card no-body>
+              <b-card-header class="border-0">
+                <h3 class="mb-0">Tasks</h3>
+              </b-card-header>
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              <el-table class="table-responsive table"
+                        header-row-class-name="thead-light"
+                        :data="tasks">
+
+                <el-table-column label="Id"
+                                 prop="id"
+                                 min-width="140px">
+                  <template v-slot="{row}">
+                    <router-link class="" :to="{ name: 'show-task', params: { id: row.id } }">{{row.id}}</router-link>
+                  </template>
+                </el-table-column>
+
+                <el-table-column label="User"
+                                 min-width="310px"
+                                 prop="name">
+                  <template v-slot="{row}">
+                    <b-media no-body class="align-items-center">
+                      <a href="#" class="avatar rounded-circle mr-3">
+                        <img alt="Avatar" :src="row.user.avatar">
+                      </a>
+                      <b-media-body>
+                        <span class="font-weight-600 name mb-0 text-sm">{{row.user.fullname || row.user.username}}</span>
+                      </b-media-body>
+                    </b-media>
+                  </template>
+                </el-table-column>
+                <el-table-column label="Problem"
+                                 prop="problem.title"
+                                 min-width="140px">
+                  <template v-slot="{row}">
+                    <router-link :to="{ name: 'show-problem', params: { id: row.problem.id } }">{{row.problem.title}}</router-link>
+                  </template>
+                </el-table-column>
+
+                <el-table-column label="Status"
+                                 min-width="170px"
+                                 prop="status_text">
+                  <template v-slot="{row}">
+                    <badge class="badge-dot mr-4" type="">
+                      <i :class="`bg-${statusType(row.status)}`"></i>
+                      <span class="status" :class="`text-${statusType(row.status)}`">{{row.status_text}}</span>
+                    </badge>
+                  </template>
+                </el-table-column>
+              </el-table>
+
+              <b-card-footer class="py-4 d-flex justify-content-end">
+                <b-pagination @page-click="pageClick"
+                              align="center"
+                              size="lg"
+                              v-model="currentPage"
+                              :total-rows="rows"
+                              :per-page="perPage"
+                              first-number
+                ></b-pagination>
+              </b-card-footer>
+            </b-card>
+          </template>
+        </b-col>
+      </b-row>
+      <div class="mt-5"></div>
+    </b-container>
   </div>
 </template>
-
 <script>
-import { getAPI } from "@/axios-api";
-import Navbar from '../../components/Navbar'
-import {Badge, Pagination} from "@/components";
+import { Table, TableColumn} from 'element-ui'
+import TasksService from "@/services/TasksService";
+
 export default {
-  name: 'problem',
-  bodyClass: 'profile-page',
-  data () {
+  name: 'light-table',
+  components: {
+    [Table.name]: Table,
+    [TableColumn.name]: TableColumn
+  },
+  data() {
     return {
-      APIData: [],
-      inputVal: 'Initial val',
-      pagination: {
-        simple: 1,
-        default: 2,
-        full: 3
-      }
-    }
+      tasks: [],
+      rows: 1,
+      perPage: 12,
+      currentPage: 1
+    };
+  },
+  async mounted() {
+    const response = await TasksService.index();
+    this.tasks = response.results
+    this.rows = response.count
   },
   methods: {
-    alertMsg: function () {
-      //
+    async pageClick(e, page) {
+      await this.$router.push('?page=' + page)
+      const response = await TasksService.index(page);
+      this.tasks = response.results
+    },
+    statusType(status){
+      switch (status){
+        case -2:
+          return 'warning'
+        case -1:
+          return 'info';
+        case 0:
+          return 'danger';
+        case 1:
+          return 'success';
+        case 2:
+          return 'danger';
+      }
+      return '';
     }
-  },
-  components: {
-    // Navbar
-    [Pagination.name]: Pagination,
-    Badge
-  },
-  created () {
-    getAPI.get('/tasks/')
-      .then(response => {
-        console.log('task API received data')
-        this.APIData = response.data
-      })
-      .catch(err => {
-        console.log('xatolik', err)
-      })
   }
 }
 </script>
-
-<style scoped>
-
-</style>

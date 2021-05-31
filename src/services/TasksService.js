@@ -1,9 +1,14 @@
 import {getAPI} from "@/axios-api";
 
 export default {
-    index() {
+    index(page=1) {
         return getAPI
-            .get('/problems/')
+            .get('/tasks/?offset=' + (page - 1) * 12)
+            .then(response => response.data);
+    },
+    show(credentials) {
+        return getAPI
+            .get('/tasks/' + credentials)
             .then(response => response.data);
     },
     submit(credentials) {

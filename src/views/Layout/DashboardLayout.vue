@@ -55,6 +55,14 @@
         </sidebar-item>
 
         <sidebar-item
+                :link="{
+                  name: 'Tasks',
+                  path: '/tasks',
+                  icon: 'ni ni-bullet-list-67 text-red'
+                }">
+        </sidebar-item>
+
+        <sidebar-item
                   :link="{
                     name: 'Login',
                     path: '/login',
