@@ -32,8 +32,8 @@
 
         <sidebar-item
               :link="{
-                name: 'Maps',
-                path: '/maps',
+                name: 'Problems',
+                path: '/problems',
                 icon: 'ni ni-pin-3 text-orange'
               }">
         </sidebar-item>

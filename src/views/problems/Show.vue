@@ -242,3 +242,76 @@ export default {
 };
 </script>
 <style></style>
+
+<template>
+  <div>
+
+    <base-header class="pb-6 pb-8 pt-5 pt-md-8 bg-gradient-success">
+      <!-- Card stats -->
+      <b-row>
+        <b-col md="12">
+          <b-card
+              :title="problem.title"
+              :img-src="problem.image"
+              img-alt="Image"
+              img-top
+              tag="article"
+              style=""
+              class="mb-2"
+          >
+
+            <b-card-text v-html="problem.content">
+
+            </b-card-text>
+
+            <small class="ni ni-money-coins"> {{ problem.ball }}</small>
+            <span>Author: </span>
+            <a v-bind:href="problem.author.url" v-if="problem.author">{{ problem.author.username }}</a>
+            <span v-else>loading...</span>
+
+          </b-card>
+        </b-col>
+      </b-row>
+    </base-header>
+
+  </div>
+</template>
+<script>
+
+// Components
+import BaseProgress from '@/components/BaseProgress';
+import StatsCard from '@/components/Cards/StatsCard';
+
+// Tables
+import SocialTrafficTable from "../Dashboard/SocialTrafficTable";
+import PageVisitsTable from "../Dashboard/PageVisitsTable";
+import ProblemsService from "../../services/ProblemsService";
+
+export default {
+  components: {
+    BaseProgress,
+    StatsCard,
+    PageVisitsTable,
+    SocialTrafficTable
+  },
+  data() {
+    return {
+      problem: []
+    };
+  },
+  mounted() {
+
+  },
+  async created() {
+    console.log('kjdkjhsbkdcj')
+    const response = await ProblemsService.show(this.$route.params.id);
+    this.problem = response;
+  }
+};
+</script>
+<style>
+.el-table .cell{
+  padding-left: 0;
+  padding-right: 0;
+}
+</style>
