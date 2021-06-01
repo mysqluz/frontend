@@ -10,8 +10,5 @@ export default {
         return getAPI
             .post('/auth/register/', credentials)
             .then(response => response.data);
-    },
-    getSecretContent() {
-        return getAPI.get(url + 'secret-route/').then(response => response.data);
     }
 };
