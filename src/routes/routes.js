@@ -7,7 +7,7 @@ import store from "@/store";
 const routes = [
   {
     path: '/',
-    redirect: 'dashboard',
+    redirect: 'news',
     component: DashboardLayout,
     children: [
       {
