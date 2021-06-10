@@ -18,7 +18,10 @@ export default {
                 return response;
             })
             .catch(err => {
-                console.log(err)
+                return {
+                    error:   1,
+                    message: err.message,
+                };
             })
     },
 };

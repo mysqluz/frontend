@@ -96,7 +96,7 @@ export default {
   props: {
     logo: {
       type: String,
-      default: 'img/brand/green.png',
+      default: 'img/brand/mysql1.png',
       description: 'Sidebar app logo'
     },
     autoClose: {

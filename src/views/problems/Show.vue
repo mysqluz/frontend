@@ -82,13 +82,20 @@ export default {
   },
   methods: {
    async submit() {
+        if (!this.$store.getters['isLoggedIn']) {
+            this.$router.push('/login');
+            return;
+        }
       const data = {
         source: this.source,
         problem: this.problem.id
       }
       const response = await TasksService.submit(data);
       console.log(response);
-      await this.$router.push('/tasks');
+      if (response.error !== 1)
+        await this.$router.push('/tasks');
+      else
+        alert(response.message);
     },
     highlighter(code) {
       return highlight(code, languages.sql, 'markup'); // languages.<insert language> to return html with markup
