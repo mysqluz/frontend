@@ -20,7 +20,7 @@
             id="navbar-search-main">
         <b-form-group class="mb-0">
           <b-input-group class="input-group-alternative input-group-merge">
-            <b-form-input placeholder="Search" type="text"> </b-form-input>
+            <b-form-input placeholder="Qidirish" type="text"> </b-form-input>
 
             <div class="input-group-append">
               <span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -43,15 +43,15 @@
         </a>
         <template>
             <b-dropdown-header class="noti-title">
-              <h6 class="text-overflow m-0">Authorization!</h6>
+              <h6 class="text-overflow m-0">Avtorizatsiya!</h6>
             </b-dropdown-header>
             <b-dropdown-item href="/login">
               <i class="ni ni-lock-circle-open"></i>
-              <router-link to="/login"><span>Sign in</span></router-link>
+              <router-link to="/login"><span>Kirish</span></router-link>
             </b-dropdown-item>
             <b-dropdown-item href="/register">
               <i class="ni ni-single-02"></i>
-              <router-link to="/register"><span>Sign up</span></router-link>
+              <router-link to="/register"><span>Ro`yxatdan o`tish</span></router-link>
             </b-dropdown-item>
 
           </template>
@@ -73,7 +73,7 @@
             <b-dropdown-header class="noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </b-dropdown-header>
-            <b-dropdown-item href="#!">
+<!--            <b-dropdown-item href="#!">
               <i class="ni ni-single-02"></i>
               <span>My profile</span>
             </b-dropdown-item>
@@ -88,11 +88,11 @@
             <b-dropdown-item href="#!">
               <i class="ni ni-support-16"></i>
               <span>Support</span>
-            </b-dropdown-item>
+            </b-dropdown-item>-->
             <div class="dropdown-divider"></div>
             <b-dropdown-item href="#!">
               <i class="ni ni-user-run"></i>
-              <router-link to="/logout"><span>Logout</span></router-link>
+              <router-link to="/logout"><span>Chiqish</span></router-link>
             </b-dropdown-item>
 
           </template>

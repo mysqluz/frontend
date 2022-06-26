@@ -6,15 +6,14 @@
         <div class="header-body text-center mb-7">
           <b-row class="justify-content-center">
             <b-col xl="5" lg="6" md="8" class="px-5">
-              <h1 class="text-white">Create an account</h1>
-              <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for
-                free.</p>
+              <h1 class="text-white">Akkount yaratish</h1>
+              <p class="text-lead text-white"></p>
             </b-col>
           </b-row>
         </div>
       </b-container>
       <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none"
              xmlns="http://www.w3.org/2000/svg">
           <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
         </svg>
@@ -26,22 +25,22 @@
       <b-row class="justify-content-center">
         <b-col lg="6" md="8" >
           <b-card no-body class="bg-secondary border-0">
-            <b-card-header class="bg-transparent pb-5">
-              <div class="text-muted text-center mt-2 mb-4"><small>Sign up with</small></div>
-              <div class="text-center">
-                <a href="#" class="btn btn-neutral btn-icon mr-4">
-                  <span class="btn-inner--icon"><img src="img/icons/common/github.svg"></span>
-                  <span class="btn-inner--text">Github</span>
-                </a>
-                <a href="#" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon"><img src="img/icons/common/google.svg"></span>
-                  <span class="btn-inner--text">Google</span>
-                </a>
-              </div>
-            </b-card-header>
+  <!--            <b-card-header class="bg-transparent pb-5">
+                <div class="text-muted text-center mt-2 mb-4"><small>Sign up with</small></div>
+                <div class="text-center">
+                  <a href="#" class="btn btn-neutral btn-icon mr-4">
+                    <span class="btn-inner&#45;&#45;icon"><img src="img/icons/common/github.svg"></span>
+                    <span class="btn-inner&#45;&#45;text">Github</span>
+                  </a>
+                  <a href="#" class="btn btn-neutral btn-icon">
+                    <span class="btn-inner&#45;&#45;icon"><img src="img/icons/common/google.svg"></span>
+                    <span class="btn-inner&#45;&#45;text">Google</span>
+                  </a>
+                </div>
+              </b-card-header>-->
             <b-card-body class="px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <small>Or sign up with credentials</small>
+                <small>Quyidagi ma'lumotlarni kiriting</small>
               </div>
               <validation-observer v-slot="{handleSubmit}" ref="formValidator">
                 <b-form role="form" @submit.prevent="handleSubmit(onSubmit)">
@@ -66,7 +65,7 @@
                   <base-input alternative
                               class="mb-3"
                               prepend-icon="ni ni-hat-3"
-                              placeholder="Full Name"
+                              placeholder="To`liq ism"
                               :rules="{required: true}"
                               v-model="fullname"
                               name="First name">
@@ -75,7 +74,7 @@
                   <base-input alternative
                               class="mb-3"
                               prepend-icon="ni ni-lock-circle-open"
-                              placeholder="password"
+                              placeholder="parol"
                               type="password"
                               name="password"
                               :rules="{required: true, min: 3}"
@@ -88,13 +87,13 @@
                               alternative
                               class="mb-3"
                               prepend-icon="ni ni-lock-circle-open"
-                              placeholder="confirm password"
+                              placeholder="tasdiqlash paroli"
                               type="password"
                               name="confirmPassword"
                               :rules="{required: true, min: 3}">
                   </base-input>
 
-                  <img :src="image" alt="Image" style="width: -moz-available">
+                  <img :src="image" alt="Avatar" style="width: -moz-available">
                   <base-input alternative
                               class="mb-3"
                               prepend-icon="ni ni-lock-circle-open"
@@ -113,7 +112,7 @@
                     </b-col>
                   </b-row>-->
                   <div class="text-center">
-                    <b-button @click="register" variant="primary" class="mt-4">Create account</b-button>
+                    <b-button @click="register" variant="primary" class="mt-4">Akkount yaratish</b-button>
                     <p v-if="msg">{{ msg }}</p>
                   </div>
                 </b-form>

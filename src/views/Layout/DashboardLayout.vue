@@ -14,7 +14,7 @@
 
         <sidebar-item
           :link="{
-            name: 'News',
+            name: 'Yangiliklar',
             path: '/news',
             icon: 'ni ni-tv-2 text-primary',
           }"
@@ -23,7 +23,7 @@
 
         <sidebar-item
             :link="{
-              name: 'Users',
+              name: 'Foydalanuvchilar',
               path: '/users',
               icon: 'ni ni-planet text-blue'
               }"
@@ -32,29 +32,29 @@
 
         <sidebar-item
               :link="{
-                name: 'Problems',
+                name: 'Masalalar',
                 path: '/problems',
                 icon: 'ni ni-pin-3 text-orange'
               }">
         </sidebar-item>
 
-        <sidebar-item
+<!--        <sidebar-item
               :link="{
                 name: 'User Profile',
                 path: '/profile',
                 icon: 'ni ni-single-02 text-yellow'
                 }">
-        </sidebar-item>
+        </sidebar-item>-->
 
         <sidebar-item
                 :link="{
-                  name: 'Tasks',
+                  name: 'Yechimlar',
                   path: '/tasks',
                   icon: 'ni ni-bullet-list-67 text-red'
                 }">
         </sidebar-item>
 
-        <sidebar-item
+<!--        <sidebar-item
                   :link="{
                     name: 'Login',
                     path: '/login',
@@ -67,7 +67,7 @@
                     path: '/register',
                     icon: 'ni ni-circle-08 text-pink'
                   }">
-        </sidebar-item>
+        </sidebar-item>-->
       </template>
     </side-bar>
     <div class="main-content">

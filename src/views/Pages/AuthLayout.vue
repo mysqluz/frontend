@@ -9,7 +9,7 @@
     >
       <div slot="brand" class="navbar-wrapper">
         <b-navbar-brand to="/">
-          <img src="img/brand/white.png">
+          <img :src="logo" class="navbar-brand-img" alt="...">
         </b-navbar-brand>
       </div>
 
@@ -18,7 +18,7 @@
          <b-row>
            <b-col cols="6" class="collapse-brand">
              <router-link to="/">
-               <img src="img/brand/green.png">
+               <img :src="logo" class="navbar-brand-img" alt="...">
              </router-link>
            </b-col>
            <b-col cols="6" class="collapse-close">
@@ -30,22 +30,22 @@
          </b-row>
        </div>
          <b-navbar-nav  class="align-items-lg-center ml-lg-auto">
-           <b-nav-item to="/dashboard">
+<!--           <b-nav-item to="/dashboard">
                <i class="ni ni-planet"></i>
-               <span class="nav-link-inner--text">Dashboard</span>
+               <span class="nav-link-inner&#45;&#45;text">Dashboard</span>
            </b-nav-item>
            <b-nav-item to="/register">
                <i class="ni ni-circle-08"></i>
-               <span class="nav-link-inner--text">Register</span>
+               <span class="nav-link-inner&#45;&#45;text">Register</span>
            </b-nav-item>
            <b-nav-item to="/login">
                <i class="ni ni-key-25"></i>
-               <span class="nav-link-inner--text">Login</span>
+               <span class="nav-link-inner&#45;&#45;text">Login</span>
            </b-nav-item>
            <b-nav-item to="/profile">
                <i class="ni ni-single-02"></i>
-               <span class="nav-link-inner--text">Profile</span>
-           </b-nav-item>
+               <span class="nav-link-inner&#45;&#45;text">Profile</span>
+           </b-nav-item>-->
        </b-navbar-nav>
      </template>
     </base-nav>
@@ -64,10 +64,10 @@
         <b-row align-v="center" class="justify-content-xl-between">
           <b-col xl="6">
             <div class="copyright text-center text-xl-left text-muted">
-              © {{year}} <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+              © {{year}} <a href="https://www.mysql.uz" class="font-weight-bold ml-1" target="_self">Mysql.uz</a>
             </div>
           </b-col>
-          <b-col xl="6" class="col-xl-6">
+<!--          <b-col xl="6" class="col-xl-6">
             <b-nav  class="nav-footer justify-content-center justify-content-xl-end">
               <b-nav-item href="https://www.creative-tim.com" target="_blank" >
                 Creative Tim
@@ -82,7 +82,7 @@
                 License
               </b-nav-item>
             </b-nav>
-          </b-col>
+          </b-col>-->
         </b-row>
       </b-container>
     </footer>
@@ -98,6 +98,11 @@
       ZoomCenterTransition
     },
     props: {
+      logo: {
+        type: String,
+        default: 'img/brand/mysql1.png',
+        description: 'Sidebar app logo'
+      },
       backgroundColor: {
         type: String,
         default: 'black'

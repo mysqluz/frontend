@@ -12,6 +12,7 @@ const routes = [
     children: [
       {
         path: '/dashboard',
+        redirect: 'news',
         name: 'dashboard',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
@@ -20,7 +21,7 @@ const routes = [
       },
       {
         path: '/news',
-        name: 'news',
+        name: 'Yangiliklar',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
@@ -28,7 +29,7 @@ const routes = [
       },
       {
         path: '/news/:slug',
-        name: 'show-news',
+        name: 'yangiliklar',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
@@ -36,7 +37,7 @@ const routes = [
       },
       {
         path: '/problems',
-        name: 'problems',
+        name: 'Masalalar',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
@@ -44,7 +45,7 @@ const routes = [
       },
       {
         path: '/problems/:id',
-        name: 'show-problem',
+        name: 'masalalar',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
@@ -52,7 +53,7 @@ const routes = [
       },
       {
         path: '/users',
-        name: 'users',
+        name: 'Foydalanuvchilar',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
@@ -60,17 +61,17 @@ const routes = [
       },
       {
         path: '/profile',
-        name: 'profile',
+        name: 'foydalanuvchilar',
         component: () => import(/* webpackChunkName: "demo" */ '../views/Pages/UserProfile.vue')
       },
       {
         path: '/tasks',
-        name: 'tasks',
+        name: 'Yechimlar',
         component: () => import(/* webpackChunkName: "demo" */ '../views/tasks/List.vue')
       },
       {
         path: '/tasks/:id',
-        name: 'show-task',
+        name: 'yechimlar',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.

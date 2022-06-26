@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="header bg-gradient-success py-7 py-lg-8 pt-lg-9">
       <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none"
              xmlns="http://www.w3.org/2000/svg">
           <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
         </svg>
@@ -16,7 +16,7 @@
           <b-card no-body class="bg-secondary border-0 mb-0">
             <b-card-body class="px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <small>Sign in with credentials</small>
+                <small>Tizimga kirish</small>
               </div>
               <validation-observer v-slot="{handleSubmit}" ref="formValidator">
                 <b-form role="form" @submit.prevent="handleSubmit(onSubmit)">
@@ -40,7 +40,7 @@
                   </base-input>
 
                   <div class="text-center">
-                    <base-button type="primary" native-type="submit" class="my-4">Sign in</base-button>
+                    <base-button type="primary" native-type="submit" class="my-4">Tizimga kirish</base-button>
                   </div>
                 </b-form>
               </validation-observer>
@@ -50,7 +50,7 @@
             <b-col cols="6">
             </b-col>
             <b-col cols="6" class="text-right">
-              <router-link to="/register" class="text-light"><small>Create new account</small></router-link>
+              <router-link to="/register" class="text-light"><small>Yangi akkount yaratish</small></router-link>
             </b-col>
           </b-row>
         </b-col>

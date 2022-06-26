@@ -9,7 +9,7 @@
           <template>
             <b-card no-body>
               <b-card-header class="border-0">
-                <h3 class="mb-0">Users</h3>
+                <h3 class="mb-0">Foydalanuvchilar</h3>
               </b-card-header>
 
               <el-table class="table-responsive table"
