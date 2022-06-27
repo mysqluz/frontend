@@ -12,7 +12,7 @@
 
       <slot name="mobile-right">
         <ul class="nav align-items-center d-md-none">
-          <base-dropdown class="nav-item" menu-on-right tag="li" title-tag="a">
+<!--          <base-dropdown class="nav-item" menu-on-right tag="li" title-tag="a">
             <a slot="title-container" class="nav-link nav-link-icon" href="#" role="button"
                aria-haspopup="true" aria-expanded="false">
               <i class="ni ni-bell-55"></i>
@@ -22,40 +22,53 @@
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
-          </base-dropdown>
+          </base-dropdown>-->
           <base-dropdown class="nav-item" menu-on-right tag="li" title-tag="a">
-            <a slot="title-container" class="nav-link" href="#" role="button">
-              <div class="media align-items-center">
-                              <span class="avatar avatar-sm rounded-circle">
-                                <img alt="Image placeholder" src="img/theme/team-1.jpg">
-                              </span>
-              </div>
-            </a>
+            <template v-if="!store.getters['isLoggedIn']">
+              <a href="#" class="nav-link pr-0" @click.prevent slot="title-container">
+                <b-media no-body class="align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="img/login2.png">
+                  </span>
+                </b-media>
+              </a>
+              <template>
+                <b-dropdown-header class="noti-title">
+                  <h6 class="text-overflow m-0">Avtorizatsiya!</h6>
+                </b-dropdown-header>
+                <b-dropdown-item href="/login">
+                  <i class="ni ni-lock-circle-open"></i>
+                  <router-link to="/login"><span>Kirish</span></router-link>
+                </b-dropdown-item>
+                <b-dropdown-item href="/register">
+                  <i class="ni ni-single-02"></i>
+                  <router-link to="/register"><span>Ro`yxatdan o`tish</span></router-link>
+                </b-dropdown-item>
 
-            <div class=" dropdown-header noti-title">
-              <h6 class="text-overflow m-0">Welcome!</h6>
-            </div>
-            <router-link to="/profile" class="dropdown-item">
-              <i class="ni ni-single-02"></i>
-              <span>My profile</span>
-            </router-link>
-            <router-link to="/profile" class="dropdown-item">
-              <i class="ni ni-settings-gear-65"></i>
-              <span>Settings</span>
-            </router-link>
-            <router-link to="/profile" class="dropdown-item">
-              <i class="ni ni-calendar-grid-58"></i>
-              <span>Activity</span>
-            </router-link>
-            <router-link to="/profile" class="dropdown-item">
-              <i class="ni ni-support-16"></i>
-              <span>Support</span>
-            </router-link>
-            <div class="dropdown-divider"></div>
-            <a href="#!" @click="logout" class="dropdown-item">
-              <i class="ni ni-user-run"></i>
-              <span>Logout</span>
-            </a>
+              </template>
+            </template>
+            <template v-else>
+              <a href="#" class="nav-link pr-0" @click.prevent slot="title-container">
+                <b-media no-body class="align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" :src="store.getters['getUser'].avatar">
+                  </span>
+                  <b-media-body class="ml-2 d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold"> {{ store.getters["getUser"].fullname ? store.getters["getUser"].fullname : store.getters["getUser"].username }} </span>
+                  </b-media-body>
+                </b-media>
+              </a>
+              <template>
+                <div class=" dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Welcome!</h6>
+                </div>
+                <div class="dropdown-divider"></div>
+                <b-dropdown-item href="#!">
+                  <i class="ni ni-user-run"></i>
+                  <router-link to="/logout"><span>Chiqish</span></router-link>
+                </b-dropdown-item>
+              </template>
+            </template>
           </base-dropdown>
         </ul>
       </slot>
@@ -110,7 +123,21 @@ export default {
       autoClose: this.autoClose
     };
   },
+  computed: {
+    routeName() {
+      const { name } = this.$route;
+      return this.capitalizeFirstLetter(name);
+    }
+  },
+  data() {
+    return {
+      store: this.$store,
+    };
+  },
   methods: {
+    capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    },
     closeSidebar() {
       this.$sidebar.displaySidebar(false)
     },

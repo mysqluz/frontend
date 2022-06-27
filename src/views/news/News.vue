@@ -16,7 +16,7 @@
               class="mb-2"
           >
 
-            <router-link class="btn btn-primary" :to="{ name: 'show-news', params: { slug: obj.slug } }">O`qish</router-link>
+            <router-link class="btn btn-primary" :to="{ name: 'yangilik', params: { slug: obj.slug } }">O`qish</router-link>
           </b-card>
         </b-col>
 

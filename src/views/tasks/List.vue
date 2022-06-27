@@ -20,7 +20,7 @@
                                  prop="id"
                                  min-width="140px">
                   <template v-slot="{row}">
-                    <router-link class="" :to="{ name: 'show-task', params: { id: row.id } }">{{row.id}}</router-link>
+                    <router-link class="" :to="{ name: 'yechim', params: { id: row.id } }">{{row.id}}</router-link>
                   </template>
                 </el-table-column>
 

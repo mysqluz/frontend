@@ -15,7 +15,7 @@
       </li>
     </b-navbar-nav>
     <b-navbar-nav class="align-items-center ml-auto ml-md-0">
-        <b-form class="navbar-search form-inline mr-sm-3"
+<!--        <b-form class="navbar-search form-inline mr-sm-3"
             :class="{'navbar-search-dark': type === 'default', 'navbar-search-light': type === 'light'}"
             id="navbar-search-main">
         <b-form-group class="mb-0">
@@ -27,7 +27,7 @@
             </div>
           </b-input-group>
         </b-form-group>
-      </b-form>
+      </b-form>-->
       <base-dropdown menu-on-right
                      class="nav-item"
                      tag="li"
@@ -45,11 +45,11 @@
             <b-dropdown-header class="noti-title">
               <h6 class="text-overflow m-0">Avtorizatsiya!</h6>
             </b-dropdown-header>
-            <b-dropdown-item href="/login">
+            <b-dropdown-item href="#/login">
               <i class="ni ni-lock-circle-open"></i>
               <router-link to="/login"><span>Kirish</span></router-link>
             </b-dropdown-item>
-            <b-dropdown-item href="/register">
+            <b-dropdown-item href="#/register">
               <i class="ni ni-single-02"></i>
               <router-link to="/register"><span>Ro`yxatdan o`tish</span></router-link>
             </b-dropdown-item>
@@ -67,7 +67,6 @@
               </b-media-body>
             </b-media>
           </a>
-
           <template>
 
             <b-dropdown-header class="noti-title">
@@ -90,7 +89,7 @@
               <span>Support</span>
             </b-dropdown-item>-->
             <div class="dropdown-divider"></div>
-            <b-dropdown-item href="#!">
+            <b-dropdown-item href="#/logout">
               <i class="ni ni-user-run"></i>
               <router-link to="/logout"><span>Chiqish</span></router-link>
             </b-dropdown-item>

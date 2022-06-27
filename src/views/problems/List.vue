@@ -15,7 +15,7 @@
               class="mb-2"
           >
 
-            <router-link class="btn btn-primary" :to="{ name: 'show-problem', params: { id: obj.id } }">Read</router-link>
+            <router-link class="btn btn-primary" :to="{ name: 'masala', params: { id: obj.id } }">Read</router-link>
           </b-card>
         </b-col>
       </b-row>
