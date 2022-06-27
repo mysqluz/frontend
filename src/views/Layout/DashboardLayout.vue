@@ -3,14 +3,14 @@
     <notifications></notifications>
     <side-bar>
       <template slot="links">
-        <sidebar-item
+<!--        <sidebar-item
           :link="{
             name: 'Dashboard',
             path: '/dashboard',
             icon: 'ni ni-tv-2 text-primary',
           }"
         >
-        </sidebar-item>
+        </sidebar-item>-->
 
         <sidebar-item
           :link="{
